@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FDXN" />
+	
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	
+	
+	
+	<title>利用阿里云部署MC服务器 ｜ 黄粱一梦</title>
+	
+    
+    
+    <meta name="description" content="这一切的起因只是暑假快到了，加上眼馋同学的网站，也想整一个动态网页弄一弄，思来想去，我还想还是先把静态网页弄明白了再去搭建动态的，至于阿里云，反正买个一年的也不心疼，还能当个游戏服务器使，稳赚不亏，何" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="FDXN.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="FDXN.github.iocss/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="FDXN.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="FDXN.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="FDXN.github.io/">Home</a>
+            </li>
+            
+            <li>
+                <a href="FDXN.github.io/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="FDXN.github.io/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="FDXN.github.io/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="FDXN.github.io">
+                    <span>黄粱一梦</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">正因是梦，尤需真活。</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://space.bilibili.com/8346968" title="bilibili" target="_blank"><i class="ri-bilibili-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/FDXN" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1005279543&amp;site=qq&amp;menu=yes" title="qq" target="_blank"><i class="ri-qq-fill"></i></a>
+                
+                
+                <a href="FDXN.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='FDXN.github.io/posts/mcserver/'>利用阿里云部署MC服务器</a></h2>
+                        <span class="date">2021.07.07</span>
+                    </div>
+                    <div class="post_content markdown"><p>这一切的起因只是暑假快到了，加上眼馋同学的网站，也想整一个动态网页弄一弄，思来想去，我还想还是先把静态网页弄明白了再去搭建动态的，至于阿里云，反正买个一年的也不心疼，还能当个游戏服务器使，稳赚不亏，何乐而不为呢。也正值发奖学金的时候，想了想用第一笔奖学金来买这个，也挺有纪念意义的。</p>
+<h1 id="一服务器获取">一、服务器获取</h1>
+<p>最近奖学金发了，就想着整一个阿里云的服务器玩玩</p>
+<p>我买的是轻量级应用服务器，2核2G，1000G。对于我来说怎么都够用了
+<img src="/mc-server0.png" alt="Local Image"></p>
+<p>这个看上去还蛮贵的，其实算上新人福利的话，一年能便宜很多，至于一年后续租的事，那就一年后再说吧</p>
+<h1 id="二linux服务器配置">二、Linux服务器配置</h1>
+<p>服务器的管理系统是使用的Linux，好巧不巧的是我之前正好了解学习过Linux入门</p>
+<p>打开控制台，选择服务器列表，进入服务器</p>
+<p><img src="/mc-server1.png" alt="Local Image"></p>
+<p>右上角远程连接就可开始操作</p>
+<p><img src="/mc-server2.png" alt="Local Image">
+<img src="/mc-server3.png" alt="Local Image"></p>
+<p>进入系统首先切换至root账号</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo su root
+</code></pre></div><p>接着安装Java</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo yum install java-1.8.0-openjdk
+</code></pre></div><p>中间过程忽略不计，直接Y下一步</p>
+<p>Java安装完之后是1.16.5的服务端</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+</code></pre></div><p>记住此时的目录</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pwd
+</code></pre></div><p>显示/home/admin</p>
+<h1 id="三mc服务器配置">三、MC服务器配置</h1>
+<p>防火墙配置对于我来说过于麻烦所以我直接忽略这一步</p>
+<p>第一次启动服务器</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>其中512是内存分配最小值，1024是内存分配最大值 /home/admin/就是路径 nogui就是不启动图形界面</p>
+<p>此时会生成一个用户协议</p>
+<p>用vim同意一下</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">vim eula.txt
+</code></pre></div><p>将里面eula=false 改为 eula=true</p>
+<p>完毕再次启动服务器</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>此时不出意外的话，服务器算是正式运行了</p>
+<p>为了方便操作，我们可以再加一些东西</p>
+<p>##启动脚本
+为了方便启动，我们新建一个.shell脚本</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">touch start.shell
+</code></pre></div><p>用vim进行编辑</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">vim start.shell
+java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>保存退出即可</p>
+<p>接下来我们就可以使用</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">bash start.shell
+</code></pre></div><p>来简化操作，快速开服</p>
+<h2 id="screen虚拟终端">Screen虚拟终端</h2>
+<p>在服务器运行的时候，界面操作为变成mc服务器的操作界面，可我们整阿里云不只是为了整个mc服务器仅此而已，所以我们需要让命令在后台运行</p>
+<p>首先 安装Screen</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">yum install -y screen
+</code></pre></div><p>安装完毕后创建新界面</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">screen -S server
+</code></pre></div><p>server为任意名称</p>
+<p>在新的界面输入</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">bash start.shell
+</code></pre></div><p>启动服务器</p>
+<p>Ctrl+a 然后按 d 退出终端</p>
+<p>重新进入只需输入</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">screen -r server
+</code></pre></div><p>即可进入终端</p>
+<h2 id="ssh-连接">ssh 连接</h2>
+<p>每次从阿里云的网页登入很是麻烦，登录还要支付宝扫一扫</p>
+<p>我们可以使用ssh命令，直接从Windows或者Linux连接</p>
+<p>首先在网页的服务器管理控制台 重置密码
+<img src="/mc-server4.png" alt="Local Image"></p>
+<p>在cmd或者powershell亦或是Linux中输入</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh root@47.**.***.***
+</code></pre></div><p>输入刚刚设置的密码
+<img src="/mc-server5.png" alt="Local Image"></p>
+<p>成功登录！</p>
+<h2 id="文件上传下载">文件上传下载</h2>
+<p>这一点其实还是Linux自带的命令scp</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">scp -P 端口 c://xxxx.txt user@ip:/home/root
+</code></pre></div><p>注意：</p>
+<p>-P 大写</p>
+<p>-i 公钥</p>
+<p>现在我们需要将D:/games/Minecraft/1.16.5/.minecraft/savas/world这个文件复制到/home/admin目录中，可以执行如下操作</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">scp -r /mnt/d/games/Minecraft/1.16.5/.minecraft/savas/world root@47.**.***.***:/home/admin
+</code></pre></div><p>这就给服务器上传了整个目录</p>
+<p>下载相反，此处不过多赘述</p>
+<h1 id="四客户端登录">四、客户端登录</h1>
+<p>此时，我们已经可以享受真正的自己的服务器了</p>
+<p>打开游戏-&gt;多人游戏-&gt;添加服务器-&gt;服务器地址</p>
+<p>此处的服务器地址就是我们服务器的公网ip，如果设置了端口，则还要在ip后加&quot;:端口&quot;</p>
+<p>想必这个大家应该都很熟悉吧 不必多言</p>
+<p>开始愉快的游戏吧</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="FDXN.github.io/tags/linux/">Linux</a>
+                                    
+                                    <a href="FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
+                                    
+                                    <a href="FDXN.github.io/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>记录</span>
+    </div>
+</footer>
+    <script src="FDXN.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="FDXN.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="FDXN.github.io/js/fancybox.min.js"></script>
+<script src="FDXN.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

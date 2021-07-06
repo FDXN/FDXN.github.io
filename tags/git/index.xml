@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on 黄粱一梦</title>
+    <link>FDXN.github.io/tags/git/</link>
+    <description>Recent content in Git on 黄粱一梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 03 Jul 2021 03:17:54 +0800</lastBuildDate><atom:link href="FDXN.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git基本操作</title>
+      <link>FDXN.github.io/posts/git/</link>
+      <pubDate>Sat, 03 Jul 2021 03:17:54 +0800</pubDate>
+      
+      <guid>FDXN.github.io/posts/git/</guid>
+      <description>克隆及提交 clone到本地 git clone address；address为需要clone的地址 git clone https://github.com/FDXN/FDXN.github.io/ git status命令可以查看文件状态(可不执行，只是用于查看文件状态) git status git add ,提交所有变化 ( -A 命令区分大小写) git</description>
+    </item>
+    
+  </channel>
+</rss>

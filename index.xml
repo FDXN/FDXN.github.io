@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>黄粱一梦</title>
+    <link>FDXN.github.io/</link>
+    <description>Recent content on 黄粱一梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 07 Jul 2021 02:23:00 +0800</lastBuildDate><atom:link href="FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用阿里云部署MC服务器</title>
+      <link>FDXN.github.io/posts/mcserver/</link>
+      <pubDate>Wed, 07 Jul 2021 02:23:00 +0800</pubDate>
+      
+      <guid>FDXN.github.io/posts/mcserver/</guid>
+      <description>这一切的起因只是暑假快到了，加上眼馋同学的网站，也想整一个动态网页弄一弄，思来想去，我还想还是先把静态网页弄明白了再去搭建动态的，至于阿里云，反正买个一年的也不心疼，还能当个游戏服务器使，稳赚不亏，何</description>
+    </item>
+    
+    <item>
+      <title>Git基本操作</title>
+      <link>FDXN.github.io/posts/git/</link>
+      <pubDate>Sat, 03 Jul 2021 03:17:54 +0800</pubDate>
+      
+      <guid>FDXN.github.io/posts/git/</guid>
+      <description>克隆及提交 clone到本地 git clone address；address为需要clone的地址 git clone https://github.com/FDXN/FDXN.github.io/ git status命令可以查看文件状态(可不执行，只是用于查看文件状态) git status git add ,提交所有变化 ( -A 命令区分大小写) git</description>
+    </item>
+    
+    <item>
+      <title>MarkDown常用</title>
+      <link>FDXN.github.io/posts/markdown/</link>
+      <pubDate>Fri, 02 Jul 2021 13:59:17 +0800</pubDate>
+      
+      <guid>FDXN.github.io/posts/markdown/</guid>
+      <description>&lt;h1 id=&#34;一标题&#34;&gt;一、标题&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
+&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
+      <link>FDXN.github.io/about/</link>
+      <pubDate>Fri, 25 Jun 2021 22:15:05 +0800</pubDate>
+      
+      <guid>FDXN.github.io/about/</guid>
+      <description>人可以，至少得试试。</description>
+    </item>
+    
+  </channel>
+</rss>
