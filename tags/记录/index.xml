@@ -22,7 +22,7 @@
       <pubDate>Sat, 03 Jul 2021 03:17:54 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/git/</guid>
-      <description>克隆及提交 clone到本地 git clone address；address为需要clone的地址 git clone https://github.com/FDXN/FDXN.github.io/ git status命令可以查看文件状态(可不执行，只是用于查看文件状态) git status git add ,提交所有变化 ( -A 命令区分大小写) git</description>
+      <description>git的基本使用指令汇总 git init #初始化git仓库 git add . #添加当前文件夹下的所有文件 git status #显示状态 git commit #提交代码 git commit -m ‘注释’ #提交代码加注释 git log # 看提交记录 git push # 推送 git push origin master #推送到远程master分支</description>
     </item>
     
     <item>

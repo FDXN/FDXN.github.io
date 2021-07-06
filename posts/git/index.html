@@ -14,7 +14,7 @@
 	
     
     
-    <meta name="description" content="克隆及提交 clone到本地 git clone address；address为需要clone的地址 git clone https://github.com/FDXN/FDXN.github.io/ git status命令可以查看文件状态(可不执行，只是用于查看文件状态) git status git add ,提交所有变化 ( -A 命令区分大小写) git" />
+    <meta name="description" content="git的基本使用指令汇总 git init #初始化git仓库 git add . #添加当前文件夹下的所有文件 git status #显示状态 git commit #提交代码 git commit -m ‘注释’ #提交代码加注释 git log # 看提交记录 git push # 推送 git push origin master #推送到远程master分支" />
     
 
     
@@ -99,7 +99,20 @@
                         <h2><a href='/posts/git/'>Git基本操作</a></h2>
                         <span class="date">2021.07.03</span>
                     </div>
-                    <div class="post_content markdown"><h1 id="克隆及提交">克隆及提交</h1>
+                    <div class="post_content markdown"><h1 id="git的基本使用指令汇总">git的基本使用指令汇总</h1>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git init                              #初始化git仓库
+git add .                             #添加当前文件夹下的所有文件
+git status                            #显示状态
+git commit                            #提交代码
+git commit  -m ‘注释’                 #提交代码加注释
+git log                               # 看提交记录
+git push                              # 推送
+git push origin master                #推送到远程master分支
+git push origin ‘版本号’              #按照版本号推送到远程
+git remote add origin &lt;URL&gt;           #关联远程仓库
+git tag -a ’版本’ -m ‘描述’            #打标签
+git push - -tags                      #提交到远程
+</code></pre></div><h1 id="克隆及提交">克隆及提交</h1>
 <ol>
 <li>clone到本地 git clone address；address为需要clone的地址</li>
 </ol>
@@ -141,7 +154,21 @@
 <li>将本地分支v2.5.1push到远程</li>
 </ol>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git push origin v2.5.1
-</code></pre></div></div>
+</code></pre></div><h1 id="自己的常见小问题">自己的常见小问题</h1>
+<h2 id="问题所在">问题所在</h2>
+<p>当我们在git版本库中发现一个问题后，如你在git上对它进行了在线修改，但是没有对本地库进行同步（做到push之前，都先pull下代码，就可以保证本地库和远程库代码一致）。这个时候你再次commit，想把本地库提交到远程git库中，就会出现push失败问题。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">failed to push some refs to
+</code></pre></div><p>说简单一点就是因为远程库与本地库不一致造成的，把远程库同步到本地就可以了。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>可以先使用</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git pull
+</code></pre></div><p>如果没用</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git pull --rebase origin master
+</code></pre></div><p>以上指令的意思是把远程库中的跟新合并到本地库中（可能存在冲突需要解决），&ndash;rebase的作用是取消本地库中刚刚提交的commit，并把他们接到更新后的版本库中。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git reset --soft HEAD^
+</code></pre></div><p>或者使用如上命令，将commit的代码撤回，然后再git pull也行。</p>
+<p>虽然网上提供了这么多种解决方案，可我最后还是选择使用删库，重建的方式解决问题。</p>
+</div>
                     <div class="post_footer">
                         
                         <div class="meta">
