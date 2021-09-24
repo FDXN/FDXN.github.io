@@ -120,7 +120,7 @@
 <p>在根目录下输入</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo -t zozo
 </code></pre></div><p>进行渲染，生成<code>public</code>文件</p>
-<h3 id="推送至github-sup1suprefer-anchor-1">推送至github <a href="#refer-anchor-1"><!-- raw HTML omitted -->[1]<!-- raw HTML omitted --></a></h3>
+<h3 id="推送至github-1refer-anchor-1">推送至github <a href="#refer-anchor-1">$^{[1]}$</a></h3>
 <p>新建一个名为<code>***.github.io</code>的库</p>
 <p>这一部分详见<a href="https://fdxn.xyz/posts/git/">Git基本操作</a></p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">cd public
@@ -140,7 +140,7 @@ git push -u origin master
 git add .
 git commit -m &#34;updates&#34;
 git push -u origin master
-</code></pre></div><h3 id="购买域名并映射sup2suprefer-anchor-2">购买域名并映射<a href="#refer-anchor-2"><!-- raw HTML omitted -->[2]<!-- raw HTML omitted --></a></h3>
+</code></pre></div><h3 id="购买域名并映射2refer-anchor-2">购买域名并映射<a href="#refer-anchor-2">$^{[2]}$</a></h3>
 <p>上网购买一个域名，我依旧是在阿里的平台上买的，挑了一个8块一年的，四舍五入就是不要钱</p>
 <p>上传CNAME文件，里面为你的域名</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">fdxn.xyz
@@ -153,7 +153,7 @@ git push -u origin master
 <p>至此全部部署结束</p>
 <h1 id="全过程中的踩坑">全过程中的踩坑</h1>
 <p>当然不可能什么事情都如此顺利，一路坎坷，善用搜索引擎。在此特别鸣谢<a href="www.google.com">Google</a>和<a href="www.csdn.net">CSDN</a>两位大哥，没有这两位大哥就没有今天的网页</p>
-<h3 id="仓库同步sup3suprefer-anchor-3">仓库同步<a href="#refer-anchor-3"><!-- raw HTML omitted -->[3]<!-- raw HTML omitted --></a></h3>
+<h3 id="仓库同步3refer-anchor-3">仓库同步<a href="#refer-anchor-3">$^{[3]}$</a></h3>
 <p>每次第一次上传至库的时候，都很顺利，但每次更新上传总是有大问题</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">error: failed to push some refs to &#39;github.com:FDXN/FDXN.github.io&#39; 
 
@@ -168,7 +168,7 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 <p>往往一件事情出错，不是表面上看上去那么简单，表面上看上去是渲染出的问题，其实究其根本，还是<code>baseurl</code>设置问题，使得上传后网页无法找到<code>css</code>，它依旧在默认的<code>localhost:1313</code>上查找资源，这当然会丢失，显现出渲染失败的样子</p>
 <p><em><strong>看待一个问题 要透过问题看本质</strong></em></p>
 <p>右键的<em>检查</em>是个好东西 希望以后的我能记住</p>
-<h1 id="在浏览器中https请求http资源sup4suprefer-anchor-4">在浏览器中https请求http资源<a href="#refer-anchor-4"><!-- raw HTML omitted -->[4]<!-- raw HTML omitted --></a></h1>
+<h1 id="在浏览器中https请求http资源4refer-anchor-4">在浏览器中https请求http资源<a href="#refer-anchor-4">$^{[4]}$</a></h1>
 <p>这一次我的浏览器依旧显示渲染失败的问题，但是有了经验的我，打开<em>检查</em></p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Mixed Content: The page at &#39;&lt;URL&gt;&#39; was loaded over HTTPS, but requested an insecure stylesheet &#39;&lt;URL&gt;&#39;. This request has been blocked; the content must be served over HTTPS.
 </code></pre></div><p>找到原因并上网查找问题所在</p>
@@ -180,23 +180,22 @@ HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，�
 </code></pre></div><p>这是一句html的指令，并且我们的html是生成的，所以我们如果一个一个改的话，治标不治本，所以找到<code>head.html</code>这个文件
 <img src="/hugo-debug1.png" alt="Local Image"></p>
 <p>在全局中加入这条指令，全局调用，治标治本</p>
-<h2 id="参考">参考</h2>
+<h2 id="参考链接">参考链接</h2>
 <!-- raw HTML omitted -->
 <ul>
-<li>[1.1]<a href="https://zhuanlan.zhihu.com/p/115219597">https://zhuanlan.zhihu.com/p/115219597</a></li>
-<li>[1.2]<a href="https://aozaki-kuro.com/hugo-deployment-debugging/">https://aozaki-kuro.com/hugo-deployment-debugging/</a></li>
+<li>[1] <a href="https://zhuanlan.zhihu.com/p/115219597">使用Hugo搭建个人博客并自动部署到阿里云</a>、<a href="https://aozaki-kuro.com/hugo-deployment-debugging/">Hugo部署与踩坑记</a></li>
 </ul>
 <!-- raw HTML omitted -->
 <ul>
-<li>[2]<a href="https://www.zhihu.com/question/31377141/answer/384465402">https://www.zhihu.com/question/31377141/answer/384465402</a></li>
+<li>[2] <a href="https://www.zhihu.com/question/31377141/answer/384465402">github怎么绑定自己的域名</a></li>
 </ul>
 <!-- raw HTML omitted -->
 <ul>
-<li>[3]<a href="https://blog.csdn.net/qq_24495287/article/details/83627727">https://blog.csdn.net/qq_24495287/article/details/83627727</a></li>
+<li>[3] <a href="https://blog.csdn.net/qq_24495287/article/details/83627727">git解决push错误failed to push some refs to的解决</a></li>
 </ul>
 <!-- raw HTML omitted -->
 <ul>
-<li>[4]<a href="https://blog.csdn.net/s_monster_/article/details/88656073">https://blog.csdn.net/s_monster_/article/details/88656073</a></li>
+<li>[4] <a href="https://blog.csdn.net/s_monster_/article/details/88656073">解决在浏览器中https请求http资源而报警</a></li>
 </ul>
 </div>
                     <div class="post_footer">

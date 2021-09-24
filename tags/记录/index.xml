@@ -6,7 +6,16 @@
     <description>Recent content in 记录 on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Jul 2021 16:14:34 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Sep 2021 05:11:40 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>近期的计划</title>
+      <link>https://FDXN.github.io/posts/plan/</link>
+      <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/plan/</guid>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 为博客添加评论系统 记录一下matlab的笔记</description>
+    </item>
+    
     <item>
       <title>Hugo部署与踩坑</title>
       <link>https://FDXN.github.io/posts/hugo-deployment-debugging/</link>

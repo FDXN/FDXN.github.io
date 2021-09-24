@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Jul 2021 16:14:34 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Sep 2021 05:11:40 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>近期的计划</title>
+      <link>https://FDXN.github.io/posts/plan/</link>
+      <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/plan/</guid>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 为博客添加评论系统 记录一下matlab的笔记</description>
+    </item>
+    
+    <item>
+      <title>集百(一？)家之所长的ASF挂卡</title>
+      <link>https://FDXN.github.io/posts/recall-copy-asf/</link>
+      <pubDate>Sat, 25 Sep 2021 00:02:07 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/recall-copy-asf/</guid>
+      <description>整个暑假都快过去了，我似乎，不是似乎，就是一点都没动过这个博客了。dzy啊dzy！你怎么能这么堕落！先前定下的计划你都忘了吗（还真忘了）？上次更新都是7月7号的事情了。甚至于说今天打开连文件放哪儿都不</description>
+    </item>
+    
     <item>
       <title>Hugo部署与踩坑</title>
       <link>https://FDXN.github.io/posts/hugo-deployment-debugging/</link>
