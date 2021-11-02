@@ -10,11 +10,11 @@
 	
 	
 	
-	<title>近期的计划 ｜ 黄粱一梦</title>
+	<title>宿舍自动联网之香蕉派实现 ｜ 黄粱一梦</title>
 	
     
     
-    <meta name="description" content="就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 Github自动部署" />
+    <meta name="description" content="最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？ 用带有WiFi的小型模块跑脚本 我的第一想法就是有没有一款单片" />
     
 
     
@@ -96,29 +96,42 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/plan/'>近期的计划</a></h2>
-                        <span class="date">2021.09.25</span>
+                        <h2><a href='/posts/auto-reconnect/'>宿舍自动联网之香蕉派实现</a></h2>
+                        <span class="date">2021.10.18</span>
                     </div>
-                    <div class="post_content markdown"><blockquote>
-<p>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。</p>
-</blockquote>
-<p><del>再整一个动态网页</del> 2021.10.15完成</p>
-<p>为博客添加评论系统</p>
-<p>记录一下matlab的笔记 2021.11.02下载完成</p>
-<p>Github自动部署</p>
+                    <div class="post_content markdown"><p>最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？</p>
+<ol>
+<li>用带有WiFi的小型模块跑脚本
+我的第一想法就是有没有一款单片机支持python(能用C为什么要用python)，显而易见没找到，pass</li>
+<li>用c语言写同样功能的，再用单片机跑
+我的水平暂时做不到，所以没有办法，但是是最好的选择在我看来</li>
+<li>路由器ssh写bash脚本
+恭喜，gswifi禁用了telnet并删除了ssh模块也无法登录提取，很好，下一个</li>
+<li>用树莓派跑
+这似乎是最理想也是最好的方法，但是资金问题&hellip;</li>
+</ol>
+<p>如此看来，暂时只有两个方案，c语言和树莓派，两个都是需要资金支持，那这件事看来只能稍微放一放了。</p>
+<p>11月2日更新：
+最终我选择了第4种方案的下位替代，其实在一周前就已经完成基本所有工作了，单纯是这份文档懒得写，拖到了今天。
+由于各种原因，这年头树莓派的价格涨的飞起，一块树莓派zero W直接从70涨到了300+，本来就是打算买一块便宜的板子，做做也不亏，但是现在这价格，不如选择相对较为便宜的香蕉派。</p>
+<p>但是香蕉派是真的不方便（我要是有钱该多好），不能在刷固件的时候就配置上ssh，虽然我的香蕉派到现在都还配置上ssh，但是已经不重要了，前些天配置各种东西已经让我心累了。
+<img src="https://raw.githubusercontent.com/FDXN/image/main/bananapiWH.jpg" alt="Web Image"></p>
+<p>每次每次买这种东西的时候，都是忘记买配套设备，前前后后四五天才能交互，甚至一开始打算用的是键盘，因为我觉得端口连接也不方便，所以一开始是用USB母母转换头连接键盘，HDMI连接到显示器(其实就是宿舍的电视，废物利用了属于是)，一切都很顺利，就是忘了键盘电压不够&hellip;但是如果用的是自带供电的USB集线器应该是可以的，但是挺贵的，不如用端口连接。其实那个时候我对USB转TTL模块完全不了解，上网找了好多资料，真的是很头疼，也从办公室顺了不少东西，前后找了wf和zzs才焊上引脚，插上wf的USB转TTL模块(我的好像是坏了)，最后用putty32成功连接上。
+<img src="https://raw.githubusercontent.com/FDXN/image/main/%E5%BC%95%E8%84%9A%E6%AD%A3.jpg" alt="Web image"></p>
+<p>(GND-接地 RX-接收数据 TX-发送数据 RX、TX需与USB转TTL模块上交叉线序)</p>
+<p><img src="https://raw.githubusercontent.com/FDXN/image/main/%E5%BC%95%E8%84%9A%E5%8F%8D.jpg" alt="Web image"></p>
+<p>接下来就是配置Armbian系统，不是很顺利，但是无所谓了，能用就行，关于烧写和连接WiFi还是比较顺利的，这里直接上我参考的链接，这里就不过多赘述，能跑哪个脚本就行，结果到头来，那个脚本是最简单的东西。</p>
+<p>到此小问题是不断，但是大体路线已经完成，ups不间断电源没钱买(关于充电宝使用至今有断电和上电时会断一瞬间的电的问题没有解决)，反正这个东西也不是什么必要物品，等不断电了再用也不急。</p>
+<p>在此还有以下几个小问题：</p>
+<ol>
+<li>空余一块0.96寸的oled屏还没使用上，未来更新计划中有此一项</li>
+<li>开机自动连接WiFi配置也还没有配置完成</li>
+<li>这个关机有大问题，关不掉，卡死在Starting kernel</li>
+<li>ssh连接也没配置上</li>
+</ol>
+<p>至此这项目算是不尽人意的完成了，也算是结项了。</p>
 </div>
                     <div class="post_footer">
-                        
-                        <div class="meta">
-                            <div class="info">
-                                <span class="field tags">
-                                    <i class="ri-stack-line"></i>
-                                    
-                                    <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
-                                    
-                                </span>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>

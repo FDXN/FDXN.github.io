@@ -10,11 +10,11 @@
 	
 	
 	
-	<title>近期的计划 ｜ 黄粱一梦</title>
+	<title>GitHub Actions基础入门-来源于别人的自动部署静态博客教程 ｜ 黄粱一梦</title>
 	
     
     
-    <meta name="description" content="就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 Github自动部署" />
+    <meta name="description" content="我的这个静态博客是通过Hugo直接将我所书写的博文编译成最终的 html、css、js 等静态文件。然后将生成的文件部署在GitHub上，这样就可在互联网中访问。由于我一直是部署在Github上的，每一次" />
     
 
     
@@ -96,29 +96,20 @@
             <div class="post_page">
                 <div class="post animate__animated animate__fadeInDown">
                     <div class="post_title post_detail_title">
-                        <h2><a href='/posts/plan/'>近期的计划</a></h2>
-                        <span class="date">2021.09.25</span>
+                        <h2><a href='/posts/github-actions/'>GitHub Actions基础入门-来源于别人的自动部署静态博客教程</a></h2>
+                        <span class="date">2021.10.17</span>
                     </div>
-                    <div class="post_content markdown"><blockquote>
-<p>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。</p>
-</blockquote>
-<p><del>再整一个动态网页</del> 2021.10.15完成</p>
-<p>为博客添加评论系统</p>
-<p>记录一下matlab的笔记 2021.11.02下载完成</p>
-<p>Github自动部署</p>
+                    <div class="post_content markdown"><p>我的这个静态博客是通过Hugo直接将我所书写的博文编译成最终的 html、css、js 等静态文件。然后将生成的文件部署在GitHub上，这样就可在互联网中访问。由于我一直是部署在Github上的，每一次更新都需要先生成静态文件然后将这个静态文件push到Github的仓库，博客就是用来写文章的，每次写篇文章还要搞这么多操作，时间长了就会觉得很累，所以我准备了两套方案————自动部署、动态网页。正好分别用来存放学习和生活的博文。这里学习的就是使用GitHub Action的自动部署。</p>
+<p>我们要让 GitHub 替我们做的事情如下：</p>
+<ol>
+<li>编译项目，生成静态文件。也就是对仓库 1: <a href="mailto:git@github.com">git@github.com</a>:somenzz/push_blog，执行 npm run build 生成博客的静态资源。</li>
+<li>将静态资源 push 到 GitHub，也就是 push 到仓库 2: <a href="mailto:git@github.com">git@github.com</a>:somenzz/http://somenzz.github.io，这一步完成后 GitHub Pages 就部署完成了。</li>
+<li>将仓库 2 同步给仓库 3，也就是 <a href="mailto:git@github.com">git@github.com</a>:somenzz/http://somenzz.github.io 同步给 <a href="http://git@gitee.com/somenzz/somenzz">http://git@gitee.com/somenzz/somenzz</a>，这样两个项目的静态资源就一致了。</li>
+<li>部署 Gitee Pages，因为 Gitee 的限制，需要手动点一下更新，现在把这一步变成一个 GitHub action。</li>
+<li>使用 rsync 增量同步工具，将静态资源同步的自购服务器的对应目录上。</li>
+</ol>
 </div>
                     <div class="post_footer">
-                        
-                        <div class="meta">
-                            <div class="info">
-                                <span class="field tags">
-                                    <i class="ri-stack-line"></i>
-                                    
-                                    <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
-                                    
-                                </span>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>

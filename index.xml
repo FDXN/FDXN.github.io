@@ -6,14 +6,32 @@
     <description>Recent content on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Sep 2021 05:11:40 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>宿舍自动联网之香蕉派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect/</link>
+      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect/</guid>
+      <description>最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？ 用带有WiFi的小型模块跑脚本 我的第一想法就是有没有一款单片</description>
+    </item>
+    
+    <item>
+      <title>GitHub Actions基础入门-来源于别人的自动部署静态博客教程</title>
+      <link>https://FDXN.github.io/posts/github-actions/</link>
+      <pubDate>Sun, 17 Oct 2021 00:57:26 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/github-actions/</guid>
+      <description>我的这个静态博客是通过Hugo直接将我所书写的博文编译成最终的 html、css、js 等静态文件。然后将生成的文件部署在GitHub上，这样就可在互联网中访问。由于我一直是部署在Github上的，每一次</description>
+    </item>
+    
     <item>
       <title>近期的计划</title>
       <link>https://FDXN.github.io/posts/plan/</link>
       <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/plan/</guid>
-      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 为博客添加评论系统 记录一下matlab的笔记</description>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 Github自动部署</description>
     </item>
     
     <item>
