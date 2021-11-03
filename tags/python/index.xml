@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 黄粱一梦</title>
+    <link>https://FDXN.github.io/tags/python/</link>
+    <description>Recent content in python on 黄粱一梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>宿舍自动联网之香蕉派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect/</link>
+      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect/</guid>
+      <description>最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？ 用带有WiFi的小型模块跑脚本 我的第一想法就是有没有一款单片</description>
+    </item>
+    
+  </channel>
+</rss>

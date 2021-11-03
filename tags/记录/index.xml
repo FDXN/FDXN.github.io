@@ -6,14 +6,23 @@
     <description>Recent content in 记录 on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 25 Sep 2021 05:11:40 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>宿舍自动联网之香蕉派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect/</link>
+      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect/</guid>
+      <description>最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？ 用带有WiFi的小型模块跑脚本 我的第一想法就是有没有一款单片</description>
+    </item>
+    
     <item>
       <title>近期的计划</title>
       <link>https://FDXN.github.io/posts/plan/</link>
       <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/plan/</guid>
-      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 Github自动部署</description>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 整理一下blog的照片 Githu</description>
     </item>
     
     <item>
