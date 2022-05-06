@@ -101,127 +101,120 @@
                     </div>
                     <div class="post_content markdown"><p>整个暑假都快过去了，我似乎，不是似乎，就是一点都没动过这个博客了。dzy啊dzy！你怎么能这么堕落！先前定下的计划你都忘了吗（还真忘了）？上次更新都是7月7号的事情了。甚至于说今天打开连文件放哪儿都不记得了。</p>
 <p>这篇云挂卡完完全全是照着@<a href="https://lbqaq.top/">luoboQAQ</a>的<a href="https://lbqaq.top/p/asf/">从零开始ASF挂卡</a>做的，除了个别问题是Google的，其余的可以说是一模一样了，所以我觉得我的步骤记录好像就没那么重要了。因此我在这里只是记录一下步骤和几点我觉得有必要的东西，并回忆一下这个静态网站的部署。</p>
-<h1 id="步骤一个字都没改">步骤（一个字都没改）</h1>
-<h2 id="一-安装net环境">一. 安装.net环境</h2>
-<h2 id="二-安装asf">二. 安装ASF</h2>
-<h2 id="三-配置asf1refer-anchor-1">三. 配置ASF<a href="#refer-anchor-1">$^{[1]}$</a></h2>
-<h2 id="四-使用tmux2refer-anchor-2">四. 使用Tmux<a href="#refer-anchor-2">$^{[2]}$</a></h2>
-<h3 id="41--启动与推出">4.1  启动与推出</h3>
+<h2 id="步骤一个字都没改">步骤（一个字都没改）</h2>
+<h3 id="一-安装net环境">一. 安装.net环境</h3>
+<h3 id="二-安装asf">二. 安装ASF</h3>
+<h3 id="三-配置asf1参考链接">三. 配置ASF<a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">$^{[1]}$</a></h3>
+<h3 id="四-使用tmux2参考链接">四. 使用Tmux<a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">$^{[2]}$</a></h3>
+<h4 id="41--启动与推出">4.1  启动与推出</h4>
 <ul>
 <li>键入<code>tmux</code>命令，就进入了 Tmux 窗口。</li>
 <li>按下<code>Ctrl+d</code>或者显式输入<code>exit</code>命令，就可以退出 Tmux 窗口。</li>
 </ul>
-<h3 id="42-新建会话">4.2 新建会话</h3>
+<h4 id="42-新建会话">4.2 新建会话</h4>
 <ul>
 <li>第一个启动的 Tmux 窗口，编号是0，第二个窗口的编号是1，以此类推。这些窗口对应的会话，就是 0 号会话、1 号会话。使用编号区分会话，不太直观，更好的方法是为会话起名。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tmux new -s &lt;session-name&gt;
-</code></pre></div><p>上面命令新建一个指定名称的会话。</p>
-<h3 id="43-分离会话">4.3 分离会话</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">$tmux</span> new -s &lt;session-name&gt;
+</span></span></code></pre></div><p>上面命令新建一个指定名称的会话。</p>
+<h4 id="43-分离会话">4.3 分离会话</h4>
 <ul>
 <li>在 Tmux 窗口中，按下<code>Ctrl+b d</code>或者输入<code>tmux detach</code>命令，就会将当前会话与窗口分离。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tmux detach
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">$tmux</span> detach
+</span></span></code></pre></div><ul>
 <li>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</li>
 <li><code>tmux ls</code>命令可以查看当前所有的 Tmux 会话。</li>
 </ul>
-<h3 id="44-接入会话">4.4 接入会话</h3>
+<h4 id="44-接入会话">4.4 接入会话</h4>
 <ul>
 <li><code>tmux attach</code>命令用于重新接入某个已存在的会话。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 使用会话编号
-$ tmux attach -t 0
-
-# 使用会话名称
-$ tmux attach -t &lt;session-name&gt;
-</code></pre></div><h3 id="45-杀死会话">4.5 杀死会话</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 使用会话编号</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> attach -t <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用会话名称</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> attach -t &lt;session-name&gt;
+</span></span></code></pre></div><h4 id="45-杀死会话">4.5 杀死会话</h4>
 <ul>
 <li><code>tmux kill-session</code>命令用于杀死某个会话。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 使用会话编号
-$ tmux kill-session -t 0
-
-# 使用会话名称
-$ tmux kill-session -t &lt;session-name&gt;
-</code></pre></div><h3 id="46-切换会话">4.6 切换会话</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 使用会话编号</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> kill-session -t <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用会话名称</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> kill-session -t &lt;session-name&gt;
+</span></span></code></pre></div><h4 id="46-切换会话">4.6 切换会话</h4>
 <p><code>tmux switch</code>命令用于切换会话。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 使用会话编号
-$ tmux switch -t 0
-
-# 使用会话名称
-$ tmux switch -t &lt;session-name&gt;
-</code></pre></div><h3 id="47-重命名会话">4.7 重命名会话</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 使用会话编号</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> switch -t <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用会话名称</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> switch -t &lt;session-name&gt;
+</span></span></code></pre></div><h4 id="47-重命名会话">4.7 重命名会话</h4>
 <p><code>tmux rename-session</code>命令用于重命名会话。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tmux rename-session -t 0 &lt;new-name&gt;
-</code></pre></div><p>上面命令将0号会话重命名。</p>
-<h3 id="48-会话快捷键">4.8 会话快捷键</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">$tmux</span> rename-session -t <span class="m">0</span> &lt;new-name&gt;
+</span></span></code></pre></div><p>上面命令将0号会话重命名。</p>
+<h4 id="48-会话快捷键">4.8 会话快捷键</h4>
 <p>下面是一些会话相关的快捷键。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Ctrl+b d：分离当前会话。
-Ctrl+b s：列出所有会话。
-Ctrl+b $：重命名当前会话。
-</code></pre></div><h3 id="49-划分窗格">4.9 划分窗格</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ctrl+b d：分离当前会话。
+</span></span><span class="line"><span class="cl">Ctrl+b s：列出所有会话。
+</span></span><span class="line"><span class="cl">Ctrl+b $：重命名当前会话。
+</span></span></code></pre></div><h4 id="49-划分窗格">4.9 划分窗格</h4>
 <p><code>tmux split-window</code>命令用来划分窗格。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 划分上下两个窗格
-$ tmux split-window
-
-# 划分左右两个窗格
-$ tmux split-window -h
-</code></pre></div><p><img src="https://www.wangbase.com/blogimg/asset/201910/bg2019102007.jpg" alt="Web Image"></p>
-<h3 id="410-移动光标">4.10 移动光标</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 划分上下两个窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> split-window
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 划分左右两个窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> split-window -h
+</span></span></code></pre></div><p><img src="https://www.wangbase.com/blogimg/asset/201910/bg2019102007.jpg" alt="Web Image"></p>
+<h4 id="410-移动光标">4.10 移动光标</h4>
 <p><code>tmux select-pane</code>命令用来移动光标位置。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 光标切换到上方窗格
-$ tmux select-pane -U
-
-# 光标切换到下方窗格
-$ tmux select-pane -D
-
-# 光标切换到左边窗格
-$ tmux select-pane -L
-
-# 光标切换到右边窗格
-$ tmux select-pane -R
-</code></pre></div><h3 id="411-交换窗格位置">4.11 交换窗格位置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 光标切换到上方窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> <span class="k">select</span>-pane -U
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 光标切换到下方窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> <span class="k">select</span>-pane -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 光标切换到左边窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> <span class="k">select</span>-pane -L
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 光标切换到右边窗格</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> <span class="k">select</span>-pane -R
+</span></span></code></pre></div><h4 id="411-交换窗格位置">4.11 交换窗格位置</h4>
 <p><code>tmux swap-pane</code>命令用来交换窗格位置。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 当前窗格上移
-$ tmux swap-pane -U
-
-# 当前窗格下移
-$ tmux swap-pane -D
-</code></pre></div><h3 id="412-窗格快捷键">4.12 窗格快捷键</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 当前窗格上移</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> swap-pane -U
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 当前窗格下移</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$tmux</span> swap-pane -D
+</span></span></code></pre></div><h4 id="412-窗格快捷键">4.12 窗格快捷键</h4>
 <p>下面是一些窗格操作的快捷键。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Ctrl+b %：划分左右两个窗格。
-Ctrl+b &#34;：划分上下两个窗格。
-Ctrl+b &lt;arrow key&gt;：光标切换到其他窗格。&lt;arrow key&gt;是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
-Ctrl+b ;：光标切换到上一个窗格。
-Ctrl+b o：光标切换到下一个窗格。
-Ctrl+b {：当前窗格与上一个窗格交换位置。
-Ctrl+b }：当前窗格与下一个窗格交换位置。
-Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
-Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
-Ctrl+b x：关闭当前窗格。
-Ctrl+b !：将当前窗格拆分为一个独立窗口。
-Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
-Ctrl+b Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
-Ctrl+b q：显示窗格编号。
-</code></pre></div><h3 id="413-窗口管理">4.13 窗口管理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ctrl+b %：划分左右两个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b &#34;：划分上下两个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b &lt;arrow key&gt;：光标切换到其他窗格。&lt;arrow key&gt;是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
+</span></span><span class="line"><span class="cl">Ctrl+b ;：光标切换到上一个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b o：光标切换到下一个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b {：当前窗格与上一个窗格交换位置。
+</span></span><span class="line"><span class="cl">Ctrl+b }：当前窗格与下一个窗格交换位置。
+</span></span><span class="line"><span class="cl">Ctrl+b Ctrl+o：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b Alt+o：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b x：关闭当前窗格。
+</span></span><span class="line"><span class="cl">Ctrl+b !：将当前窗格拆分为一个独立窗口。
+</span></span><span class="line"><span class="cl">Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+</span></span><span class="line"><span class="cl">Ctrl+b Ctrl+&lt;arrow key&gt;：按箭头方向调整窗格大小。
+</span></span><span class="line"><span class="cl">Ctrl+b q：显示窗格编号。
+</span></span></code></pre></div><h4 id="413-窗口管理">4.13 窗口管理</h4>
 <p>除了将一个窗口划分成多个窗格，Tmux 也允许新建多个窗口。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">略
-</code></pre></div><h2 id="五-使用ascf3refer-anchor-3">五. 使用ASCF<a href="#refer-anchor-3">$^{[3]}$</a></h2>
-<h2 id="六-启动asf">六. 启动ASF</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">略
+</span></span></code></pre></div><h3 id="五-使用ascf3参考链接">五. 使用ASCF<a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">$^{[3]}$</a></h3>
+<h3 id="六-启动asf">六. 启动ASF</h3>
 <p>一开始ASCF试了半天一直闪退，结果最后发现是自打一开始我就没开防火墙，也就没443端口啥事儿了。</p>
 <h2 id="参考链接">参考链接</h2>
-<!-- raw HTML omitted -->
 <ul>
 <li>[1] <a href="https://justarchinet.github.io/ASF-WebConfigGenerator/#/">在线配置文件生成器</a>、<a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN">ASF官方WiKi</a></li>
-</ul>
-<!-- raw HTML omitted -->
-<ul>
 <li>[2] <a href="http://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程</a></li>
-</ul>
-<!-- raw HTML omitted -->
-<ul>
-<li>[3]<a href="https://keylol.com/t339641-1-1">【更新2.0】另一个SteamCommunityFix | 支持Win/Linux/MacOS 【2018-08-29】</a></li>
+<li>[3] <a href="https://keylol.com/t339641-1-1">【更新2.0】另一个SteamCommunityFix | 支持Win/Linux/MacOS 【2018-08-29】</a></li>
 </ul>
 </div>
                     <div class="post_footer">

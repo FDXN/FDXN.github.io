@@ -6,11 +6,47 @@
     <description>Recent content in Tags on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 May 2022 00:19:58 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arduino</title>
+      <link>https://FDXN.github.io/tags/arduino/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/tags/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://FDXN.github.io/tags/c/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>记录</title>
+      <link>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>实用</title>
+      <link>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux</title>
       <link>https://FDXN.github.io/tags/linux/</link>
-      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/tags/linux/</guid>
       <description></description>
@@ -19,27 +55,9 @@
     <item>
       <title>python</title>
       <link>https://FDXN.github.io/tags/python/</link>
-      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>实用</title>
-      <link>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</link>
-      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
-      
-      <guid>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>记录</title>
-      <link>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
-      
-      <guid>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</guid>
       <description></description>
     </item>
     

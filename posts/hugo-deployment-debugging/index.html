@@ -99,86 +99,86 @@
                         <h2><a href='/posts/hugo-deployment-debugging/'>Hugo部署与踩坑</a></h2>
                         <span class="date">2021.07.07</span>
                     </div>
-                    <div class="post_content markdown"><h1 id="hugo的部署">Hugo的部署</h1>
+                    <div class="post_content markdown"><h2 id="hugo的部署">Hugo的部署</h2>
 <p>自安装hugo起，至此blog正式部署成功大概过去了半个月</p>
 <p>说实话，我也懒得整理部署hugo的指令了，只是简述一下整个hugo部署以来的历程</p>
 <h3 id="安装hugo">安装hugo</h3>
 <p>直接从github上下载，或者clone下来</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/gohugoio/hugo
-</code></pre></div><h3 id="找到合适的主题">找到合适的主题</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone https://github.com/gohugoio/hugo
+</span></span></code></pre></div><h3 id="找到合适的主题">找到合适的主题</h3>
 <p>其实就是用别人写好的blog，用别人写好的css,像逛菜市场一样挑一个顺眼的，拼拼凑凑，修修剪剪，缝缝补补</p>
 <p>&ldquo;菜市场&quot;↓</p>
 <p><a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></p>
 <p>我这里用的是ZOZO主题</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone https://github.com/varkai/hugo-theme-zozo themes/zozo
-</code></pre></div><h3 id="修改内容">修改内容</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone https://github.com/varkai/hugo-theme-zozo themes/zozo
+</span></span></code></pre></div><h3 id="修改内容">修改内容</h3>
 <p>对于网页什么的，我是一窍不通，唯一一点印象是初中电脑课上学过一丢丢，所以我全是靠作者在<code>config.toml</code>里留下的注释改完的全部，在此再次感谢各位作者</p>
 <p>对于markdown语言，我也是一窍不通，但是看了网上的教程后，也是勉强布置完了</p>
 <p>这里不贴一下某位启蒙我的dalao实在是不合适</p>
 <p><a href="https://luobo.cf/p/blog%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">dalao的整理</a></p>
 <h3 id="生成静态网页">生成静态网页</h3>
 <p>在根目录下输入</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo -t zozo
-</code></pre></div><p>进行渲染，生成<code>public</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo -t zozo
+</span></span></code></pre></div><p>进行渲染，生成<code>public</code>文件</p>
 <h3 id="推送至github-1refer-anchor-1">推送至github <a href="#refer-anchor-1">$^{[1]}$</a></h3>
 <p>新建一个名为<code>***.github.io</code>的库</p>
 <p>这一部分详见<a href="https://fdxn.xyz/posts/git/">Git基本操作</a></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">cd public
-git init
-# 仓库初始化
-git add .
-# 添加所有文件到暂存区
-git remote add git@github.com:xxxxxxx
-# 指定远程仓库 xxxxxxx修改为自己项目主页的ssh地址
-git commit -m &#34;first commit&#34;
-# 提交
-git push -u origin master
-# 推送
-</code></pre></div><p>上传成功后，就可以使用<code>***.github.io</code>连接了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd public
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl"># 仓库初始化
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl"># 添加所有文件到暂存区
+</span></span><span class="line"><span class="cl">git remote add git@github.com:xxxxxxx
+</span></span><span class="line"><span class="cl"># 指定远程仓库 xxxxxxx修改为自己项目主页的ssh地址
+</span></span><span class="line"><span class="cl">git commit -m &#34;first commit&#34;
+</span></span><span class="line"><span class="cl"># 提交
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span><span class="line"><span class="cl"># 推送
+</span></span></code></pre></div><p>上传成功后，就可以使用<code>***.github.io</code>连接了</p>
 <p>更新后再次push</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git status
-git add .
-git commit -m &#34;updates&#34;
-git push -u origin master
-</code></pre></div><h3 id="购买域名并映射2refer-anchor-2">购买域名并映射<a href="#refer-anchor-2">$^{[2]}$</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#34;updates&#34;
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></div><h3 id="购买域名并映射2refer-anchor-2">购买域名并映射<a href="#refer-anchor-2">$^{[2]}$</a></h3>
 <p>上网购买一个域名，我依旧是在阿里的平台上买的，挑了一个8块一年的，四舍五入就是不要钱</p>
 <p>上传CNAME文件，里面为你的域名</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">fdxn.xyz
-</code></pre></div><p>ping你的<code>***.github.io</code>域名，得到一个IP
-<img src="/hugo-deploy1.png" alt="Local Image"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">fdxn.xyz
+</span></span></code></pre></div><p>ping你的<code>***.github.io</code>域名，得到一个IP
+<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy1.png" alt="Web Image"></p>
 <p>在域名控制台修改域名解析记录
-<img src="/hugo-deploy2.png" alt="Local Image"></p>
+<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy2.png" alt="Web Image"></p>
 <p>添加两个A记录，用得到的IP，一个主机记录为：“www”，一个为“@”，这样通过fdxn.xyz和www.fdxn.xyz都能访问到我的博客了
-<img src="/hugo-deploy3.png" alt="Local Image"></p>
+<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy3.png" alt="Web Image"></p>
 <p>至此全部部署结束</p>
-<h1 id="全过程中的踩坑">全过程中的踩坑</h1>
+<h2 id="全过程中的踩坑">全过程中的踩坑</h2>
 <p>当然不可能什么事情都如此顺利，一路坎坷，善用搜索引擎。在此特别鸣谢<a href="www.google.com">Google</a>和<a href="www.csdn.net">CSDN</a>两位大哥，没有这两位大哥就没有今天的网页</p>
 <h3 id="仓库同步3refer-anchor-3">仓库同步<a href="#refer-anchor-3">$^{[3]}$</a></h3>
 <p>每次第一次上传至库的时候，都很顺利，但每次更新上传总是有大问题</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">error: failed to push some refs to &#39;github.com:FDXN/FDXN.github.io&#39; 
-
-hint: Updates were rejected because the remote contains work that you do 
-hint: not have locally. This is usually caused by another repository pushing 
-hint: to the same ref. You may want to first integrate the remote changes 
-hint: (e.g., &#39;git pull ...&#39;) before pushing again. 
-hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
-</code></pre></div><p>以上问题基本出在git上对它进行了在线修改，但是没有对本地库进行同步</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">error: failed to push some refs to &#39;github.com:FDXN/FDXN.github.io&#39; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">hint: Updates were rejected because the remote contains work that you do 
+</span></span><span class="line"><span class="cl">hint: not have locally. This is usually caused by another repository pushing 
+</span></span><span class="line"><span class="cl">hint: to the same ref. You may want to first integrate the remote changes 
+</span></span><span class="line"><span class="cl">hint: (e.g., &#39;git pull ...&#39;) before pushing again. 
+</span></span><span class="line"><span class="cl">hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</span></span></code></pre></div><p>以上问题基本出在git上对它进行了在线修改，但是没有对本地库进行同步</p>
 <p>处理办法在<a href="https://fdxn.xyz/posts/git/">Git基本操作</a>中也有提到，实在不行就直接删库</p>
 <h3 id="渲染">渲染</h3>
 <p>往往一件事情出错，不是表面上看上去那么简单，表面上看上去是渲染出的问题，其实究其根本，还是<code>baseurl</code>设置问题，使得上传后网页无法找到<code>css</code>，它依旧在默认的<code>localhost:1313</code>上查找资源，这当然会丢失，显现出渲染失败的样子</p>
 <p><em><strong>看待一个问题 要透过问题看本质</strong></em></p>
 <p>右键的<em>检查</em>是个好东西 希望以后的我能记住</p>
-<h1 id="在浏览器中https请求http资源4refer-anchor-4">在浏览器中https请求http资源<a href="#refer-anchor-4">$^{[4]}$</a></h1>
+<h3 id="在浏览器中https请求http资源4refer-anchor-4">在浏览器中https请求http资源<a href="#refer-anchor-4">$^{[4]}$</a></h3>
 <p>这一次我的浏览器依旧显示渲染失败的问题，但是有了经验的我，打开<em>检查</em></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Mixed Content: The page at &#39;&lt;URL&gt;&#39; was loaded over HTTPS, but requested an insecure stylesheet &#39;&lt;URL&gt;&#39;. This request has been blocked; the content must be served over HTTPS.
-</code></pre></div><p>找到原因并上网查找问题所在</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Mixed Content: The page at &#39;&lt;URL&gt;&#39; was loaded over HTTPS, but requested an insecure stylesheet &#39;&lt;URL&gt;&#39;. This request has been blocked; the content must be served over HTTPS.
+</span></span></code></pre></div><p>找到原因并上网查找问题所在</p>
 <p>报错原因：
 HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，所以在 HTTPS 承载的页面上不允许出现 http 请求，一旦出现就是提示或报错</p>
 <p>解决办法：
 在页面中加入<code>meta</code>头：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">header(&#34;Content-Security-Policy: upgrade-insecure-requests&#34;);
-</code></pre></div><p>这是一句html的指令，并且我们的html是生成的，所以我们如果一个一个改的话，治标不治本，所以找到<code>head.html</code>这个文件
-<img src="/hugo-debug1.png" alt="Local Image"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">header(&#34;Content-Security-Policy: upgrade-insecure-requests&#34;);
+</span></span></code></pre></div><p>这是一句html的指令，并且我们的html是生成的，所以我们如果一个一个改的话，治标不治本，所以找到<code>head.html</code>这个文件
+<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-debug1.png" alt="Web Image"></p>
 <p>在全局中加入这条指令，全局调用，治标治本</p>
 <h2 id="参考链接">参考链接</h2>
 <!-- raw HTML omitted -->

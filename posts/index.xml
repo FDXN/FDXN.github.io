@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 May 2022 00:19:58 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事</title>
+      <link>https://FDXN.github.io/posts/8266-wifi-openlight/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/8266-wifi-openlight/</guid>
+      <description>前言 由于我最新的电脑桌配置，导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 这次用的是ESP8266，并使用点灯科技接入小爱同学。 关于为什么不用继电器这件事，最主要的是，我不会；第二，我房</description>
+    </item>
+    
+    <item>
+      <title>宿舍自动联网之鸟枪换炮大材小用我乐意之树莓派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect-plus/</link>
+      <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect-plus/</guid>
+      <description>自从那块香蕉派烧了之后,-135$￥,心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去</description>
+    </item>
+    
     <item>
       <title>宿舍自动联网之香蕉派实现</title>
       <link>https://FDXN.github.io/posts/auto-reconnect/</link>
@@ -22,7 +40,7 @@
       <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/plan/</guid>
-      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 再整一个动态网页 2021.10.15完成 为博客添加评论系统 记录一下matlab的笔记 2021.11.02下载完成 整理一下blog的照片 Githu</description>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 第一期 2021.9.25 再整一个动态网页 2021.10.15完成 为博客添加评论系统 不想做了 记录一下matlab的笔记 2021.11.02下载完成 不想做了 整理一下</description>
     </item>
     
     <item>
@@ -67,14 +85,14 @@
       <pubDate>Fri, 02 Jul 2021 13:59:17 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/markdown/</guid>
-      <description>&lt;h1 id=&#34;一标题&#34;&gt;一、标题&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
-&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>&lt;h2 id=&#34;一标题&#34;&gt;一、标题&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

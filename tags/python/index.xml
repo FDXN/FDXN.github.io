@@ -6,7 +6,16 @@
     <description>Recent content in python on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 18 Oct 2021 22:46:46 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 00:39:58 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>宿舍自动联网之鸟枪换炮大材小用我乐意之树莓派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect-plus/</link>
+      <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect-plus/</guid>
+      <description>自从那块香蕉派烧了之后,-135$￥,心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去</description>
+    </item>
+    
     <item>
       <title>宿舍自动联网之香蕉派实现</title>
       <link>https://FDXN.github.io/posts/auto-reconnect/</link>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FDXN" />
+	
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	
+	
+	
+	<title>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事 ｜ 黄粱一梦</title>
+	
+    
+    
+    <meta name="description" content="前言 由于我最新的电脑桌配置，导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 这次用的是ESP8266，并使用点灯科技接入小爱同学。 关于为什么不用继电器这件事，最主要的是，我不会；第二，我房" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://FDXN.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.iocss/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://FDXN.github.io">
+                    <span>黄粱一梦</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">正因是梦，尤需真活。</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://space.bilibili.com/8346968" title="bilibili" target="_blank"><i class="ri-bilibili-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/FDXN" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1005279543&amp;site=qq&amp;menu=yes" title="qq" target="_blank"><i class="ri-qq-fill"></i></a>
+                
+                
+                <a href="https://FDXN.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/8266-wifi-openlight/'>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事</a></h2>
+                        <span class="date">2022.05.02</span>
+                    </div>
+                    <div class="post_content markdown"><h2 id="前言">前言</h2>
+<p>由于我最新的电脑桌配置，导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。</p>
+<p>这次用的是ESP8266，并使用点灯科技接入小爱同学。</p>
+<p>关于为什么不用继电器这件事，最主要的是，我不会；第二，我房间是一个一灯双控开关，普通继电器不大方便，要用更高级一点的，实属是麻烦；第三，毕竟是强电，连接线路啥的还是蛮麻烦的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/8266openlight+.jpg" alt="Web image"></p>
+<p>外围电路基本没有啥，一个按钮手动开启，就没了。</p>
+<h2 id="硬件部分">硬件部分</h2>
+<p>为了方便固定，我将走线部分焊在了洞洞板上，焊接工艺实在是不堪入目，但，能用就行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/8266openlight-.jpg" alt="Web image"></p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define BLINKER_WIFI
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define BLINKER_PRINT Serial
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define BLINKER_MIOT_LIGHT
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Blinker.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">auth</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">//点灯设备密钥
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">ssid</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">//WiFi名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">pswd</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">//WiFi密码
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BlinkerButton</span> <span class="nf">Button1</span><span class="p">(</span><span class="s">&#34;ddl1&#34;</span><span class="p">);</span> <span class="c1">//blinker按键键名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">BlinkerButton</span> <span class="nf">Button2</span><span class="p">(</span><span class="s">&#34;ddl2&#34;</span><span class="p">);</span> <span class="c1">//blinker按键键名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Servo</span> <span class="n">servo_15</span><span class="p">;</span>   <span class="c1">//舵机输出口 GIPO15
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">digitalPin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//开关输入口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">oState</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">lightState</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//按键1按下后执行该函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">button1_callback</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span> <span class="o">&amp;</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;get button state: &#34;</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="n">switchSwitch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">    servo_15.write(45);  //舵机旋转角度 具体参数需要结合自身情况修改
+</span></span></span><span class="line"><span class="cl"><span class="cm">    delay(1);           //给一个小延时
+</span></span></span><span class="line"><span class="cl"><span class="cm">    delay(1000);   //舵机动作后延时一会回到初始位置
+</span></span></span><span class="line"><span class="cl"><span class="cm">    servo_15.write(85); //设置该角度方便手动开关灯 就是开完灯舵机归位
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//按键2按下执行该函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">button2_callback</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span> <span class="o">&amp;</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;get button state: &#34;</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">switchSwitch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">    servo_15.write(125);  //同上一样的思路
+</span></span></span><span class="line"><span class="cl"><span class="cm">    delay(1);
+</span></span></span><span class="line"><span class="cl"><span class="cm">    delay(1000);
+</span></span></span><span class="line"><span class="cl"><span class="cm">    servo_15.write(85);  
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//小爱电源回调函数
+</span></span></span><span class="line"><span class="cl"><span class="c1">//里面同样设置舵机的动作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">miotPowerState</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span> <span class="o">&amp;</span> <span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;need set power state: &#34;</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">BLINKER_CMD_ON</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">// digitalWrite(LED_BUILTIN, HIGH);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">switchSwitch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">       <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">         servo_15.write(45);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         delay(1);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         delay(1000);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         servo_15.write(85);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">powerState</span><span class="p">(</span><span class="s">&#34;on&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="o">==</span> <span class="n">BLINKER_CMD_OFF</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">//  digitalWrite(LED_BUILTIN, LOW);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">switchSwitch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        servo_15.write(125);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         delay(1);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         delay(1000);
+</span></span></span><span class="line"><span class="cl"><span class="cm">         servo_15.write(85);
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">powerState</span><span class="p">(</span><span class="s">&#34;off&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">miotQuery</span><span class="p">(</span><span class="kt">int32_t</span> <span class="n">queryCode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;MIOT Query codes: &#34;</span><span class="p">,</span> <span class="n">queryCode</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">queryCode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">BLINKER_CMD_QUERY_ALL_NUMBER</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;MIOT Query All&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">powerState</span><span class="p">(</span><span class="n">oState</span> <span class="o">?</span> <span class="s">&#34;on&#34;</span> <span class="o">:</span> <span class="s">&#34;off&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="nl">BLINKER_CMD_QUERY_POWERSTATE_NUMBER</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;MIOT Query Power State&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">powerState</span><span class="p">(</span><span class="n">oState</span> <span class="o">?</span> <span class="s">&#34;on&#34;</span> <span class="o">:</span> <span class="s">&#34;off&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">default</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">powerState</span><span class="p">(</span><span class="n">oState</span> <span class="o">?</span> <span class="s">&#34;on&#34;</span> <span class="o">:</span> <span class="s">&#34;off&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">dataRead</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span> <span class="o">&amp;</span> <span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_LOG</span><span class="p">(</span><span class="s">&#34;Blinker readString: &#34;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Blinker</span><span class="p">.</span><span class="n">vibrate</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">BlinkerTime</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Blinker</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">BlinkerTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Blinker</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;millis&#34;</span><span class="p">,</span> <span class="n">BlinkerTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">switchSwitch</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">lightState</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">servo_15</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">57</span><span class="p">);</span>  <span class="c1">//舵机旋转角度 具体参数需要结合自身情况修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>           <span class="c1">//给一个小延时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>        <span class="c1">//舵机动作后延时一会回到初始位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="n">servo_15</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">85</span><span class="p">);</span> <span class="c1">//设置该角度方便手动开关灯 就是开完灯舵机归位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="n">lightState</span> <span class="o">=</span>  <span class="o">!</span><span class="n">lightState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="n">servo_15</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">106</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">servo_15</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">85</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">         <span class="n">lightState</span> <span class="o">=</span>  <span class="o">!</span><span class="n">lightState</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">BLINKER_DEBUG</span><span class="p">.</span><span class="n">stream</span><span class="p">(</span><span class="n">Serial</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化有LED的IO
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//这里初始话后没有调用板子自带的led
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pinMode</span><span class="p">(</span><span class="n">digitalPin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//pinMode(ledPin, OUTPUT);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">servo_15</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化blinker
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Blinker</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">ssid</span><span class="p">,</span> <span class="n">pswd</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">attachQuery</span><span class="p">(</span><span class="n">miotQuery</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Blinker</span><span class="p">.</span><span class="n">attachData</span><span class="p">(</span><span class="n">dataRead</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BlinkerMIOT</span><span class="p">.</span><span class="n">attachPowerState</span><span class="p">(</span><span class="n">miotPowerState</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Button1</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="n">button1_callback</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Button2</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="n">button2_callback</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Blinker</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">digitalPin</span><span class="p">)</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">switchSwitch</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>以上就是全部代码，使用到了Blinker库。</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.bilibili.com/video/BV19X4y1T7DP">ESP8266制作宿舍开关灯神器</a></p>
+<p>本代码来自@<a href="https://space.bilibili.com/388130393">CloudBaby_</a>这个up主，我只是在那位up主的基础上简单加了一个按钮启动的函数。</p>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://FDXN.github.io/tags/arduino/">Arduino</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/">实用</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/c/">c</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>记录</span>
+    </div>
+</footer>
+    <script src="https://FDXN.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://FDXN.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://FDXN.github.io/js/fancybox.min.js"></script>
+<script src="https://FDXN.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
