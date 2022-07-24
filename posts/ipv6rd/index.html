@@ -154,32 +154,26 @@
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-AreYouOK.png" alt="Web Image"></p>
 <h3 id="关闭ipv6防火墙">关闭IPv6防火墙</h3>
 <p>输入以下指令</p>
-<p>&lsquo;&lsquo;&lsquo;bash
-vi /etc/rc.local
-&rsquo;&rsquo;&rsquo;</p>
-<p>在里面加入</p>
-<p>&lsquo;&lsquo;&lsquo;vim
-speed=$(uci -q get xiaoqiang.common.WAN_SPEED)
-[ -n &ldquo;$speed&rdquo; ] &amp;&amp; /usr/sbin/phyhelper swan &ldquo;$speed&rdquo;
-ip6tables -I forwarding_rule -p tcp &ndash;dport 3389 -j ACCEPT
-ip6tables -I forwarding_rule -p udp &ndash;dport 3389 -j ACCEPT
-&rsquo;&rsquo;&rsquo;</p>
-<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-router_firewall.png" alt="Web Image"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vi /etc/rc.local
+</span></span></code></pre></div><p>在里面加入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">speed</span><span class="p">=</span>$<span class="p">(</span><span class="nx">uci</span> <span class="p">-</span><span class="nx">q</span> <span class="nx">get</span> <span class="nx">xiaoqiang</span>.<span class="nx">common</span>.<span class="nx">WAN_SPEED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>[ <span class="p">-</span><span class="nx">n</span> <span class="s2">&#34;$speed&#34;</span> ] &amp;&amp; <span class="sr">/usr/</span><span class="nx">sbin</span>/<span class="nx">phyhelper</span> <span class="nx">swan</span> <span class="s2">&#34;$speed&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">tcp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">udp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
+</span></span></span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-router_firewall.png" alt="Web Image"></p>
 <p>保存后输入指令&rsquo;reboot&rsquo;回车执行后重启路由器</p>
 <p>或者更绝一些（不推荐）
 逐条输入以下指令</p>
-<p>&lsquo;&lsquo;&lsquo;bash
-ip6tables -F
-ip6tables -X
-ip6tables -P INPUT ACCEPT
-ip6tables -P OUTPUT ACCEPT
-ip6tables -P FORWARD ACCEPT
-&rsquo;&rsquo;&rsquo;</p>
-<p>这样就完全不用烦防火墙了以后</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip6tables -F
+</span></span><span class="line"><span class="cl">ip6tables -X
+</span></span><span class="line"><span class="cl">ip6tables -P INPUT ACCEPT
+</span></span><span class="line"><span class="cl">ip6tables -P OUTPUT ACCEPT
+</span></span><span class="line"><span class="cl">ip6tables -P FORWARD ACCEPT
+</span></span></code></pre></div><p>这样就完全不用烦防火墙了以后</p>
 <h2 id="ddns">ddns</h2>
 <p>此时已经可以使用上面那个获取到的IPv6进行公网访问了，但是那个毕竟会变，再加上IPv6毕竟不是IPv4，实在是不好记，那我们就需要ddns服务</p>
 <p>首先还是买一个域名，直接用之前的域名也可以，不过反正便宜，我就想着一种用途买一个，未来好分配整理</p>
-<p>进入域名管理界面，先把记录类型改成AAAA，解析IPv6地址，后面记录值先随便填比如&rsquo;fe80::&rsquo;</p>
+<p>进入域名管理界面，先把记录类型改成AAAA，解析IPv6地址，后面记录值先随便填比如&rsquo;fe80::'</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-analysis_success.png" alt="Web Image"></p>
 <p>我这里用的也是一个小工具<a href="https://github.com/NewFuture/DDNS">NewFuture/DDNS</a></p>
 <p>先双击ddns.exe，软件会生成一个配置文件，填写，我的配置如下</p>
