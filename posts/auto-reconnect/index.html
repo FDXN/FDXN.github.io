@@ -115,11 +115,11 @@
 最终我选择了第4种方案的下位替代，其实在一周前就已经完成基本所有工作了，单纯是这份文档懒得写，拖到了今天。
 由于各种原因，这年头树莓派的价格涨的飞起，一块树莓派zero W直接从70涨到了300+，本来就是打算买一块便宜的板子，做做也不亏，但是现在这价格，不如选择相对较为便宜的香蕉派。</p>
 <p>但是香蕉派是真的不方便（我要是有钱该多好），不能在刷固件的时候就配置上ssh，虽然我的香蕉派到现在都还配置上ssh，但是已经不重要了，前些天配置各种东西已经让我心累了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/bananapiWH.jpg" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/auto_reconnect-bananapiWH.jpg" alt="Web Image"></p>
 <p>每次每次买这种东西的时候，都是忘记买配套设备，前前后后四五天才能交互，甚至一开始打算用的是键盘，因为我觉得端口连接也不方便，所以一开始是用USB母母转换头连接键盘，HDMI连接到显示器(其实就是宿舍的电视，废物利用了属于是)，一切都很顺利，就是忘了键盘电压不够&hellip;但是如果用的是自带供电的USB集线器应该是可以的，但是挺贵的，不如用端口连接。其实那个时候我对USB转TTL模块完全不了解，上网找了好多资料，真的是很头疼，也从办公室顺了不少东西，前后找了wf和zzs才焊上引脚，插上wf的USB转TTL模块(我的好像是坏了)，最后用putty32成功连接上。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/%E5%BC%95%E8%84%9A%E6%AD%A3.jpg" alt="Web image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/auto_reconnect-pin_front.jpg" alt="Web Image"></p>
 <p>(GND-接地 RX-接收数据 TX-发送数据 RX、TX需与USB转TTL模块上交叉线序)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/%E5%BC%95%E8%84%9A%E5%8F%8D.jpg" alt="Web image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/auto_reconnect-pin_back.jpg" alt="Web Image"></p>
 <p>接下来就是配置Armbian系统，不是很顺利，但是无所谓了，能用就行，关于烧写<a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">$^{[1]}$</a>和连接WiFi<a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">$^{[2]}$</a>还是比较顺利的，这里直接上我参考的链接，这里就不过多赘述，能跑哪个脚本就行，结果到头来，那个脚本是最简单的东西。</p>
 <p>到此小问题是不断，但是大体路线已经完成，ups不间断电源没钱买(关于充电宝使用至今有断电和上电时会断一瞬间的电的问题没有解决)，反正这个东西也不是什么必要物品，等不断电了再用也不急。</p>
 <h2 id="剩余一些小问题">剩余一些小问题</h2>

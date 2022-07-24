@@ -103,15 +103,15 @@
 <h2 id="一服务器获取">一、服务器获取</h2>
 <p>最近奖学金发了，就想着整一个阿里云的服务器玩玩</p>
 <p>我买的是轻量级应用服务器，2核2G，1000G。对于我来说怎么都够用了
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server0.png" alt="Web Image"></p>
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-purchase.png" alt="Web Image"></p>
 <p>这个看上去还蛮贵的，其实算上新人福利的话，一年能便宜很多，至于一年后续租的事，那就一年后再说吧</p>
 <h2 id="二linux服务器配置">二、Linux服务器配置</h2>
 <p>服务器的管理系统是使用的Linux，好巧不巧的是我之前正好了解学习过Linux入门</p>
 <p>打开控制台，选择服务器列表，进入服务器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server1.png" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-state.png" alt="Web Image"></p>
 <p>右上角远程连接就可开始操作</p>
-<p><img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server2.png" alt="Web Image">
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server3.png" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-RC.png" alt="Web Image">
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-login_success.png" alt="Web Image"></p>
 <p>进入系统首先切换至root账号</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo su root
 </span></span></code></pre></div><p>接着安装Java</p>
@@ -162,12 +162,12 @@
 <h3 id="ssh-连接">ssh 连接</h3>
 <p>每次从阿里云的网页登入很是麻烦，登录还要支付宝扫一扫</p>
 <p>我们可以使用ssh命令，直接从Windows或者Linux连接</p>
-<p>首先在网页的服务器管理控制台 重置密码
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server4.png" alt="Web Image"></p>
+<p>首先在网页的服务器管理控制台 重置密码</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-set_password.png" alt="Web Image"></p>
 <p>在cmd或者powershell亦或是Linux中输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh root@47.**.***.***
-</span></span></code></pre></div><p>输入刚刚设置的密码
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/mc-server5.png" alt="Web Image"></p>
+</span></span></code></pre></div><p>输入刚刚设置的密码</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-ssh.png" alt="Web Image"></p>
 <p>成功登录！</p>
 <h3 id="文件上传下载">文件上传下载</h3>
 <p>这一点其实还是Linux自带的命令scp</p>

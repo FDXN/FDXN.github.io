@@ -115,7 +115,7 @@
 <p>对于网页什么的，我是一窍不通，唯一一点印象是初中电脑课上学过一丢丢，所以我全是靠作者在<code>config.toml</code>里留下的注释改完的全部，在此再次感谢各位作者</p>
 <p>对于markdown语言，我也是一窍不通，但是看了网上的教程后，也是勉强布置完了</p>
 <p>这里不贴一下某位启蒙我的dalao实在是不合适</p>
-<p><a href="https://luobo.cf/p/blog%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">dalao的整理</a></p>
+<p><a href="https://lbqaq.top/p/blog%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/">dalao的整理</a></p>
 <h3 id="生成静态网页">生成静态网页</h3>
 <p>在根目录下输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo -t zozo
@@ -145,11 +145,11 @@
 <p>上传CNAME文件，里面为你的域名</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">fdxn.xyz
 </span></span></code></pre></div><p>ping你的<code>***.github.io</code>域名，得到一个IP
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy1.png" alt="Web Image"></p>
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/hugo-ping_github.png" alt="Web Image"></p>
 <p>在域名控制台修改域名解析记录
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy2.png" alt="Web Image"></p>
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/hugo-dns_analysis.png" alt="Web Image"></p>
 <p>添加两个A记录，用得到的IP，一个主机记录为：“www”，一个为“@”，这样通过fdxn.xyz和www.fdxn.xyz都能访问到我的博客了
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-deploy3.png" alt="Web Image"></p>
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/hugo-dns_record.png" alt="Web Image"></p>
 <p>至此全部部署结束</p>
 <h2 id="全过程中的踩坑">全过程中的踩坑</h2>
 <p>当然不可能什么事情都如此顺利，一路坎坷，善用搜索引擎。在此特别鸣谢<a href="www.google.com">Google</a>和<a href="www.csdn.net">CSDN</a>两位大哥，没有这两位大哥就没有今天的网页</p>
@@ -178,7 +178,7 @@ HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，�
 在页面中加入<code>meta</code>头：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">header(&#34;Content-Security-Policy: upgrade-insecure-requests&#34;);
 </span></span></code></pre></div><p>这是一句html的指令，并且我们的html是生成的，所以我们如果一个一个改的话，治标不治本，所以找到<code>head.html</code>这个文件
-<img src="https://cdn.jsdelivr.net/gh/FDXN/image@main/hugo-debug1.png" alt="Web Image"></p>
+<img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/hugo-debug.png" alt="Web Image"></p>
 <p>在全局中加入这条指令，全局调用，治标治本</p>
 <h2 id="参考链接">参考链接</h2>
 <!-- raw HTML omitted -->

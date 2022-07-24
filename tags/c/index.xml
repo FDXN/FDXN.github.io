@@ -13,7 +13,7 @@
       <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/8266-wifi-openlight/</guid>
-      <description>前言 由于我最新的电脑桌配置，导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 这次用的是ESP8266，并使用点灯科技接入小爱同学。 关于为什么不用继电器这件事，最主要的是，我不会；第二，我房</description>
+      <description>前言 由于我最新的电脑桌配置，开关在我屏幕的后面,导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 ↑我的新配置，开关就在这个屏幕后面，手根本碰不到 这次用的是ESP8266，并使用点灯科技接入</description>
     </item>
     
   </channel>

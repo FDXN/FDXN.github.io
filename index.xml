@@ -6,14 +6,32 @@
     <description>Recent content on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 00:19:58 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jul 2022 13:04:00 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于为了一个远程桌面忙忙碌碌开了乱七八糟各种东西这回事儿</title>
+      <link>https://FDXN.github.io/posts/ipv6rd/</link>
+      <pubDate>Wed, 20 Jul 2022 13:04:00 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/ipv6rd/</guid>
+      <description>现在是7月20号，7月中旬的最后一天，距离上次更新博客已有两个半月，期间也不是没有做些事情，只是做了但是要么没做成，要么就根本没啥用。 感觉我最近写的越来越像流水账了，像小学生作文一样，今天把图床换成了</description>
+    </item>
+    
+    <item>
+      <title>GDB调试程序</title>
+      <link>https://FDXN.github.io/posts/gdb/</link>
+      <pubDate>Sun, 29 May 2022 01:42:05 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/gdb/</guid>
+      <description>//本次是帮一个同学完成她的选修课，本来只是打算用markdown来做个报告，但是写都写了，不如就发出来凑一下做个学期的日记。说起来这老师也是离谱，改怎么说他呢，只能说不愧是苏大的老师，讲课就是随性，</description>
+    </item>
+    
     <item>
       <title>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事</title>
       <link>https://FDXN.github.io/posts/8266-wifi-openlight/</link>
       <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/8266-wifi-openlight/</guid>
-      <description>前言 由于我最新的电脑桌配置，导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 这次用的是ESP8266，并使用点灯科技接入小爱同学。 关于为什么不用继电器这件事，最主要的是，我不会；第二，我房</description>
+      <description>前言 由于我最新的电脑桌配置，开关在我屏幕的后面,导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 ↑我的新配置，开关就在这个屏幕后面，手根本碰不到 这次用的是ESP8266，并使用点灯科技接入</description>
     </item>
     
     <item>
