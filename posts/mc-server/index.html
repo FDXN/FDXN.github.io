@@ -113,71 +113,71 @@
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-RC.png" alt="Web Image">
 <img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-login_success.png" alt="Web Image"></p>
 <p>进入系统首先切换至root账号</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo su root
-</span></span></code></pre></div><p>接着安装Java</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum install java-1.8.0-openjdk
-</span></span></code></pre></div><p>中间过程忽略不计，直接Y下一步</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo su root
+</code></pre></div><p>接着安装Java</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install java-1.8.0-openjdk
+</code></pre></div><p>中间过程忽略不计，直接Y下一步</p>
 <p>Java安装完之后是1.16.5的服务端</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
-</span></span></code></pre></div><p>记住此时的目录</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">pwd</span>
-</span></span></code></pre></div><p>显示/home/admin</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+</code></pre></div><p>记住此时的目录</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">pwd</span>
+</code></pre></div><p>显示/home/admin</p>
 <h2 id="三mc服务器配置">三、MC服务器配置</h2>
 <p>防火墙配置对于我来说过于麻烦所以我直接忽略这一步</p>
 <p>第一次启动服务器</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
-</span></span></code></pre></div><p>其中512是内存分配最小值，1024是内存分配最大值 /home/admin/就是路径 nogui就是不启动图形界面</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>其中512是内存分配最小值，1024是内存分配最大值 /home/admin/就是路径 nogui就是不启动图形界面</p>
 <p>此时会生成一个用户协议</p>
 <p>用vim同意一下</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim eula.txt
-</span></span></code></pre></div><p>将里面eula=false 改为 eula=true</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vim eula.txt
+</code></pre></div><p>将里面eula=false 改为 eula=true</p>
 <p>完毕再次启动服务器</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
-</span></span></code></pre></div><p>此时不出意外的话，服务器算是正式运行了</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>此时不出意外的话，服务器算是正式运行了</p>
 <p>为了方便操作，我们可以再加一些东西</p>
 <h3 id="启动脚本">启动脚本</h3>
 <p>为了方便启动，我们新建一个.shell脚本</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch start.shell
-</span></span></code></pre></div><p>用vim进行编辑</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim start.shell
-</span></span><span class="line"><span class="cl">java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
-</span></span></code></pre></div><p>保存退出即可</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">touch start.shell
+</code></pre></div><p>用vim进行编辑</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vim start.shell
+java -Xms512m -Xmx1024m -jar /home/admin/server.jar nogui
+</code></pre></div><p>保存退出即可</p>
 <p>接下来我们就可以使用</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash start.shell
-</span></span></code></pre></div><p>来简化操作，快速开服</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">bash start.shell
+</code></pre></div><p>来简化操作，快速开服</p>
 <h3 id="screen虚拟终端">Screen虚拟终端</h3>
 <p>在服务器运行的时候，界面操作为变成mc服务器的操作界面，可我们整阿里云不只是为了整个mc服务器仅此而已，所以我们需要让命令在后台运行</p>
 <p>首先 安装Screen</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum install -y screen
-</span></span></code></pre></div><p>安装完毕后创建新界面</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">screen -S server
-</span></span></code></pre></div><p>server为任意名称</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">yum install -y screen
+</code></pre></div><p>安装完毕后创建新界面</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">screen -S server
+</code></pre></div><p>server为任意名称</p>
 <p>在新的界面输入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash start.shell
-</span></span></code></pre></div><p>启动服务器</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">bash start.shell
+</code></pre></div><p>启动服务器</p>
 <p>Ctrl+a 然后按 d 退出终端</p>
 <p>重新进入只需输入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">screen -r server
-</span></span></code></pre></div><p>即可进入终端</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">screen -r server
+</code></pre></div><p>即可进入终端</p>
 <h3 id="ssh-连接">ssh 连接</h3>
 <p>每次从阿里云的网页登入很是麻烦，登录还要支付宝扫一扫</p>
 <p>我们可以使用ssh命令，直接从Windows或者Linux连接</p>
 <p>首先在网页的服务器管理控制台 重置密码</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-set_password.png" alt="Web Image"></p>
 <p>在cmd或者powershell亦或是Linux中输入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh root@47.**.***.***
-</span></span></code></pre></div><p>输入刚刚设置的密码</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh root@47.**.***.***
+</code></pre></div><p>输入刚刚设置的密码</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/mc_server-ssh.png" alt="Web Image"></p>
 <p>成功登录！</p>
 <h3 id="文件上传下载">文件上传下载</h3>
 <p>这一点其实还是Linux自带的命令scp</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp -P 端口 c://xxxx.txt user@ip:/home/root
-</span></span></code></pre></div><p>注意：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">scp -P 端口 c://xxxx.txt user@ip:/home/root
+</code></pre></div><p>注意：</p>
 <p>-P 大写</p>
 <p>-i 公钥</p>
 <p>现在我们需要将D:/games/Minecraft/1.16.5/.minecraft/savas/world这个文件复制到/home/admin目录中，可以执行如下操作</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp -r /mnt/d/games/Minecraft/1.16.5/.minecraft/savas/world root@47.**.***.***:/home/admin
-</span></span></code></pre></div><p>这就给服务器上传了整个目录</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">scp -r /mnt/d/games/Minecraft/1.16.5/.minecraft/savas/world root@47.**.***.***:/home/admin
+</code></pre></div><p>这就给服务器上传了整个目录</p>
 <p>下载相反，此处不过多赘述</p>
 <h2 id="四客户端登录">四、客户端登录</h2>
 <p>此时，我们已经可以享受真正的自己的服务器了</p>

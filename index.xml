@@ -6,7 +6,25 @@
     <description>Recent content on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 20 Jul 2022 13:04:00 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Nov 2022 21:20:06 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>德创VisionPro操作和可视化图形化机器视觉</title>
+      <link>https://FDXN.github.io/posts/dcck-vision-pro/</link>
+      <pubDate>Sun, 20 Nov 2022 21:20:06 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/dcck-vision-pro/</guid>
+      <description>上次在实习时第一个参观的就是德创的机器视觉，虽然说公司有点小，但还是可以试试看这个软件的。 毕竟可视化图形化机器视觉还是听上去蛮有搞头的，正好学校也有这个实验。 说实话这个东西不知道能不能发在网上，不过也</description>
+    </item>
+    
+    <item>
+      <title>三轴CNC改装写字机可能性验证</title>
+      <link>https://FDXN.github.io/posts/write-machine/</link>
+      <pubDate>Mon, 31 Oct 2022 00:23:57 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/write-machine/</guid>
+      <description>我们原以为是毛坯房装修，做着做着发现是从砖开始砌，做到最后没想到居然是从烧砖开始。 大概是很久前就想把那台三轴CNC重新利用上，可是一直没有机会实现，一个人不是很有动力来完成，然后这次和wf的讨论，正好</description>
+    </item>
+    
     <item>
       <title>关于为了一个远程桌面忙忙碌碌开了乱七八糟各种东西这回事儿</title>
       <link>https://FDXN.github.io/posts/ipv6rd/</link>
@@ -40,7 +58,7 @@
       <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/auto-reconnect-plus/</guid>
-      <description>自从那块香蕉派烧了之后,-135$￥,心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去</description>
+      <description>自从那块香蕉派烧了之后，-135￥，心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去实</description>
     </item>
     
     <item>
@@ -104,13 +122,13 @@
       
       <guid>https://FDXN.github.io/posts/markdown/</guid>
       <description>&lt;h2 id=&#34;一标题&#34;&gt;一、标题&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
+&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>

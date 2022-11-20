@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://FDXN.github.io/posts/</loc>
-    <lastmod>2022-07-20T13:04:00+08:00</lastmod>
+    <lastmod>2022-11-20T21:20:06+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/posts/ipv6rd/</loc>
-    <lastmod>2022-07-20T13:04:00+08:00</lastmod>
+    <loc>https://FDXN.github.io/posts/dcck-vision-pro/</loc>
+    <lastmod>2022-11-20T21:20:06+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/</loc>
+    <lastmod>2022-11-20T21:20:06+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/write-machine/</loc>
+    <lastmod>2022-10-31T00:23:57+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/ipv6rd/</loc>
     <lastmod>2022-07-20T13:04:00+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/gdb/</loc>
@@ -26,10 +32,10 @@
     <loc>https://FDXN.github.io/posts/8266-wifi-openlight/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</loc>
+    <loc>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/tags/linux/</loc>
@@ -47,10 +53,10 @@
     <loc>https://FDXN.github.io/posts/plan/</loc>
     <lastmod>2021-09-25T05:11:40+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/posts/recall-copy-asf/</loc>
+    <loc>https://FDXN.github.io/tags/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2021-09-25T00:02:07+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <loc>https://FDXN.github.io/posts/recall-copy-asf/</loc>
     <lastmod>2021-09-25T00:02:07+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/tags/hugo/</loc>

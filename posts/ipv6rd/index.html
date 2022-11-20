@@ -116,7 +116,7 @@
 <p>等我啥时候心血来潮再给这个项目结个尾，下次一定下次一定。</p>
 <p>这一次做的就是我一直以来想做的远程桌面，在我iPad到手前我就已经开始着手布置了，从开始13号到结束20号整整忙了一周，每天都只有中午休息的时候才有时间弄一弄，弄完的第一时间也是及时的来更新了，所以这次的内容非常丰富。</p>
 <h2 id="开启远程桌面">开启远程桌面</h2>
-<p>开启远程桌面的前置条件，Windows专业版，正好最近Windows11搞得沸沸扬扬的，我就想着反正也是来都来了，整个Windows11玩玩，然后稀里糊涂的开了&rsquo;Windows预览体验计划&rsquo;，不过不得不说不愧是预览版，她从根源上杜绝了蓝屏现象，预览版改绿屏了。一个网卡驱动的bug折磨的我死去活来，好在我出问题的一天后微软就发布了新补丁，修复了这个问题，但我的电脑甚至不能撑到Windows更新完，最后还是把版本退了回去，并关了自动更新，等到下一个正式版再退出这个体验计划，只能说好奇心害死猫。</p>
+<p>开启远程桌面的前置条件，Windows专业版，正好最近Windows11搞得沸沸扬扬的，我就想着反正也是来都来了，整个Windows11玩玩，然后稀里糊涂的开了&rsquo;Windows预览体验计划'，不过不得不说不愧是预览版，她从根源上杜绝了蓝屏现象，预览版改绿屏了。一个网卡驱动的bug折磨的我死去活来，好在我出问题的一天后微软就发布了新补丁，修复了这个问题，但我的电脑甚至不能撑到Windows更新完，最后还是把版本退了回去，并关了自动更新，等到下一个正式版再退出这个体验计划，只能说好奇心害死猫。</p>
 <p>好像升级到Windows11对于我来说没有什么太大的意义，不过好歹也算升级到了专业版，可以非常轻松的在设置中打开远程桌面功能。</p>
 <p>开启之后在防火墙中开启入站规则中的tcp和ucp协议允许3389端口通过，或者方便一点直接允许远程桌面软件通过。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-windows_firewall.png" alt="Web Image"></p>
@@ -131,45 +131,45 @@
 <p>最后我只能自己去找淘宝商家解决，花钱省事儿了属于是，就是那个小哥手挺贱，把我保存的浏览记录和密码什么的都删了，tnnd，小手不干净。</p>
 <h3 id="ipv6-配置">IPv6 配置</h3>
 <p>之后进入我的路由器设置，将IPv6模式设置成Native，DNS设置为</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2400:3200::1
-</span></span><span class="line"><span class="cl">2400:3200:baba::1
-</span></span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-ipv6_set.png" alt="Web Image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">2400:3200::1
+2400:3200:baba::1
+</code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-ipv6_set.png" alt="Web Image"></p>
 <p>阿里云的DNS，我的域名也是阿里云的，到时候也许用起来会方便一点？大概</p>
 <h3 id="测试">测试</h3>
 <p>这个时候电脑大概就有IPv6地址了，进cmd</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ipconfig
-</span></span></code></pre></div><p>一下，看一下此时的IPv6地址，如果是240开头的，各个运营商都不一样，比如我用的移动的就是2409，这就是公网IPv6了，如果是fe80的，那就还是内网，之后在到<a href="http://test.ipv6.fastweb.it/">IPv6测试网站</a>测试一下，看一下是否是同一个，如果没有问题的话，那就没有什么问题了，有问题的话我这里也没有办法，我不是教程，我只是一个日记，别找我。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ipconfig
+</code></pre></div><p>一下，看一下此时的IPv6地址，如果是240开头的，各个运营商都不一样，比如我用的移动的就是2409，这就是公网IPv6了，如果是fe80的，那就还是内网，之后在到<a href="http://test.ipv6.fastweb.it/">IPv6测试网站</a>测试一下，看一下是否是同一个，如果没有问题的话，那就没有什么问题了，有问题的话我这里也没有办法，我不是教程，我只是一个日记，别找我。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-ipconfig.png" alt="Web Image">
 <img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-test_ipv6.png" alt="Web Image"></p>
 <h2 id="路由器防火墙">路由器防火墙</h2>
 <p>小米路由器没有防火墙设置真是**，其他路由器都有的功能，小米就是不加，就和其他运行商都可以，唯独移动不行一样，得自己手动来。这里插句题外话，本来是打算刷个openwrt方便管理，但是刷完了从千兆变成了三伯兆，花了一两天也没解决，还是刷了回去，博客也懒得写了，浅贴一个链接。</p>
 <h3 id="开启ssh">开启ssh</h3>
 <p>我这里使用的是<a href="https://github.com/acecilia/OpenWRTInvasion">acecilia/OpenWRTInvasion</a>工具，操作简单，无副作用，流程极短，我这里也不做教程，反正就是</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">python3</span> <span class="n">remote_command_execution_vulnerability</span><span class="o">.</span><span class="n">py</span>
-</span></span></code></pre></div><p>根据提示输入路由器地址，密码，选择包的获取方式（0.07还是0.08已经不用必须GitHub下载了，可以选择本地包），开始操作</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">python3</span> <span class="n">remote_command_execution_vulnerability</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div><p>根据提示输入路由器地址，密码，选择包的获取方式（0.07还是0.08已经不用必须GitHub下载了，可以选择本地包），开始操作</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-telnet_preparatory.png" alt="Web Image"></p>
 <p>操作完直接telnet就完事儿了</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">telnet miwifi.com
-</span></span></code></pre></div><p>账号密码默认root，进入就可以看到大大的&rsquo;Are You OK'</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">telnet miwifi.com
+</code></pre></div><p>账号密码默认root，进入就可以看到大大的&rsquo;Are You OK'</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-AreYouOK.png" alt="Web Image"></p>
 <h3 id="关闭ipv6防火墙">关闭IPv6防火墙</h3>
 <p>输入以下指令</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vi /etc/rc.local
-</span></span></code></pre></div><p>在里面加入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">speed</span><span class="p">=</span>$<span class="p">(</span><span class="nx">uci</span> <span class="p">-</span><span class="nx">q</span> <span class="nx">get</span> <span class="nx">xiaoqiang</span>.<span class="nx">common</span>.<span class="nx">WAN_SPEED</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>[ <span class="p">-</span><span class="nx">n</span> <span class="s2">&#34;$speed&#34;</span> ] &amp;&amp; <span class="sr">/usr/</span><span class="nx">sbin</span>/<span class="nx">phyhelper</span> <span class="nx">swan</span> <span class="s2">&#34;$speed&#34;</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">tcp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">udp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
-</span></span></span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-router_firewall.png" alt="Web Image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">vi /etc/rc.local
+</code></pre></div><p>在里面加入</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">speed</span><span class="p">=</span>$<span class="p">(</span><span class="nx">uci</span> <span class="p">-</span><span class="nx">q</span> <span class="nx">get</span> <span class="nx">xiaoqiang</span>.<span class="nx">common</span>.<span class="nx">WAN_SPEED</span><span class="p">)</span><span class="err">
+</span><span class="err"></span>[ <span class="p">-</span><span class="nx">n</span> <span class="s2">&#34;$speed&#34;</span> ] &amp;&amp; <span class="sr">/usr/</span><span class="nx">sbin</span>/<span class="nx">phyhelper</span> <span class="nx">swan</span> <span class="s2">&#34;$speed&#34;</span><span class="err">
+</span><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">tcp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
+</span><span class="err"></span><span class="nx">ip6tables</span> <span class="p">-</span><span class="nx">I</span> <span class="nx">forwarding_rule</span> <span class="p">-</span><span class="nx">p</span> <span class="nx">udp</span> <span class="p">--</span><span class="nx">dport</span> <span class="m">3389</span> <span class="p">-</span><span class="nx">j</span> <span class="nx">ACCEPT</span><span class="err">
+</span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/IPv6_RD-router_firewall.png" alt="Web Image"></p>
 <p>保存后输入指令&rsquo;reboot&rsquo;回车执行后重启路由器</p>
 <p>或者更绝一些（不推荐）
 逐条输入以下指令</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ip6tables -F
-</span></span><span class="line"><span class="cl">ip6tables -X
-</span></span><span class="line"><span class="cl">ip6tables -P INPUT ACCEPT
-</span></span><span class="line"><span class="cl">ip6tables -P OUTPUT ACCEPT
-</span></span><span class="line"><span class="cl">ip6tables -P FORWARD ACCEPT
-</span></span></code></pre></div><p>这样就完全不用烦防火墙了以后</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ip6tables -F
+ip6tables -X
+ip6tables -P INPUT ACCEPT
+ip6tables -P OUTPUT ACCEPT
+ip6tables -P FORWARD ACCEPT
+</code></pre></div><p>这样就完全不用烦防火墙了以后</p>
 <h2 id="ddns">ddns</h2>
 <p>此时已经可以使用上面那个获取到的IPv6进行公网访问了，但是那个毕竟会变，再加上IPv6毕竟不是IPv4，实在是不好记，那我们就需要ddns服务</p>
 <p>首先还是买一个域名，直接用之前的域名也可以，不过反正便宜，我就想着一种用途买一个，未来好分配整理</p>

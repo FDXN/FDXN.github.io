@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FDXN" />
+	
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	
+	
+	
+	<title>三轴CNC改装写字机可能性验证 ｜ 黄粱一梦</title>
+	
+    
+    
+    <meta name="description" content="我们原以为是毛坯房装修，做着做着发现是从砖开始砌，做到最后没想到居然是从烧砖开始。 大概是很久前就想把那台三轴CNC重新利用上，可是一直没有机会实现，一个人不是很有动力来完成，然后这次和wf的讨论，正好" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://FDXN.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.iocss/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://FDXN.github.io">
+                    <span>黄粱一梦</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">正因是梦，尤需真活。</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://space.bilibili.com/8346968" title="bilibili" target="_blank"><i class="ri-bilibili-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/FDXN" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1005279543&amp;site=qq&amp;menu=yes" title="qq" target="_blank"><i class="ri-qq-fill"></i></a>
+                
+                
+                <a href="https://FDXN.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/write-machine/'>三轴CNC改装写字机可能性验证</a></h2>
+                        <span class="date">2022.10.31</span>
+                    </div>
+                    <div class="post_content markdown"><blockquote>
+<p>我们原以为是毛坯房装修，做着做着发现是从砖开始砌，做到最后没想到居然是从烧砖开始。</p>
+</blockquote>
+<p>大概是很久前就想把那台三轴CNC重新利用上，可是一直没有机会实现，一个人不是很有动力来完成，然后这次和wf的讨论，正好谈论到了关于写字机的DIY设计，三轴CNC重新进入我的视线。</p>
+<p>图未来再加&hellip;&hellip;</p>
+<h2 id="立项">立项</h2>
+<p>我们需要一台自己的写字机来应对眼前的手写材料，例如课程设计（实际上到最后一天完成的时候已经是课程设计的最后一晚了，参数还没有时间调试，并没有投入实际生产——11.17），此项目就此立项，现成的框架也正好可以利用起来。</p>
+<h2 id="设计">设计</h2>
+<h3 id="框架">框架</h3>
+<p>本框架尺寸340x380x270，机器行程240x170x65，两块台面尺寸加在一起280x160，理论去掉两块台面的行程应该是170+160=330mm，但是中间有其他零件干涉，并不能达到理论，只能达到290mm，此时XY行程为240x290，但是一张A4纸的尺寸为297x210mm，差的看上去是7mm，但是这就让后期格式设计上了些难度，但这也是目前的最佳方案了。</p>
+<p>传动是步进电机加丝杆，比起皮带传动，丝杆更加稳定，但是速度就要略显一筹，运行时笔非常稳定。</p>
+<h3 id="步进电机">步进电机</h3>
+<p>我们采用的是42步进电机，没有任何选用理由，单纯是因为框架上预留的空位只能装上42步进电机。</p>
+<p>一开始我们认为是步进电机损坏，于是重新自己写了一个程序，分别在esp8266和arduino上，不幸的是，arduino写不进去，esp8266直接爆炸了一块电容，火光四射，烟雾缭绕，谁看了不说这是过年放烟花呢。于是我放弃了自己写程序自己验证步进电机好坏的想法，直接买新的。</p>
+<p>买步进电机的时候我和wf还去了一趟苏州的机电市场，从观前旁边那个到虎丘区的，就是没有，白跑一趟，最后还是打算淘宝买。</p>
+<p>新的步进电机一到，插上去，还是没有反应，好，排除步进电机问题。</p>
+<h3 id="驱动">驱动</h3>
+<p>驱动选用最便宜的A4988驱动，我一度以为是驱动坏了，前前后后使用了进二十块驱动，就算再便宜再劣质也总得有一个成功吧，结果到最后，一块也没驱动成功，遂排除驱动问题。</p>
+<h3 id="主控板">主控板</h3>
+<p>市面上包括我手头的电路部分都是CH340加上328p芯片，这块芯片十分常用，甚至当时机械狗实验课上主控板用的都是这个芯片，刷写grbl的固件，但是知道最后我都没在哪怕一块328p芯片上成功使用刷写并使用成功。买了一块新的还给退了。</p>
+<p>就此我们排除了步进电机的驱动和步进电机，只有主控板问题没有排除，没有办法只能买新的。</p>
+<p>最后我们选用了一块esp32芯片，商家帮我们刷写好固件才成功使用。</p>
+<h3 id="底座">底座</h3>
+<p>原先底座太大，占用了宝贵的本就不多的行程，而且还凹凸不平，不适合写字，所以我们直接使用我们学校的实验室，激光切割了一块300*220的亚克力板，两块，其中一块开了孔，用来填入磁铁固定纸。</p>
+<h3 id="夹笔">夹笔</h3>
+<p>我们当时实在是没有时间去忙活3D打印的事情了，于是直接使用热熔胶固定，事实证明，很牢。</p>
+<h3 id="组合">组合</h3>
+<p>在底座的固定上我们选用了最朴实无华的502胶固定，用来写字时绰绰有余。</p>
+<p>就此，整个写字机的设计初步完成，你别说简不简陋，可靠性怎么样，你就说能不能用吧。</p>
+<h2 id="上位机">上位机</h2>
+<p>我想了想我们并没有时间和水平去写一个上位机，于是直接买，能用钱解决的事情就不算是问题。</p>
+<h2 id="总花费">总花费</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">💴</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">框架</td>
+<td style="text-align:center">0￥</td>
+<td style="text-align:center">运费不是我掏的</td>
+</tr>
+<tr>
+<td style="text-align:center">步进电机</td>
+<td style="text-align:center">60￥</td>
+<td style="text-align:center">没用上</td>
+</tr>
+<tr>
+<td style="text-align:center">驱动</td>
+<td style="text-align:center">35￥</td>
+<td style="text-align:center">没用上</td>
+</tr>
+<tr>
+<td style="text-align:center">主控板</td>
+<td style="text-align:center">90￥</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">底座</td>
+<td style="text-align:center">0￥</td>
+<td style="text-align:center">学校提供的</td>
+</tr>
+<tr>
+<td style="text-align:center">夹笔</td>
+<td style="text-align:center">0￥</td>
+<td style="text-align:center">热熔胶</td>
+</tr>
+<tr>
+<td style="text-align:center">上位机</td>
+<td style="text-align:center">17￥</td>
+<td style="text-align:center">租用一个月</td>
+</tr>
+<tr>
+<td style="text-align:center">总计</td>
+<td style="text-align:center">202￥</td>
+<td style="text-align:center">血赚</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>综上，除了时间跨越三个礼拜，在金钱上还是很赚的，但是我们确实没想到有这么复杂，心累，还好最后做完了，就这样，参数未来再设置，关于延长丝杆来延长行程，那就未来再说，我估计是没有机会了。</p>
+</div>
+                    <div class="post_footer">
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>记录</span>
+    </div>
+</footer>
+    <script src="https://FDXN.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://FDXN.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://FDXN.github.io/js/fancybox.min.js"></script>
+<script src="https://FDXN.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>
