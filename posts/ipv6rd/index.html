@@ -36,6 +36,202 @@
     
 </head>
 
+
+
+<head><style type="text/css">:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
+}
+
+.toc details summary {
+    cursor: zoom-in;
+    margin-inline-start: 20px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+</style></head>
+
+
+<div style="position: fixed; right:10px;max-width:600px; overflow:auto; top: 100px; width: 20vw; bottom:30px">
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%bc%80%e5%90%af%e8%bf%9c%e7%a8%8b%e6%a1%8c%e9%9d%a2" aria-label="开启远程桌面">开启远程桌面</a></li>
+                    <li>
+                        <a href="#ipv6%e8%8e%b7%e5%8f%96" aria-label="IPv6获取">IPv6获取</a><ul>
+                            
+                    <li>
+                        <a href="#%e5%85%89%e7%8c%ab%e6%a1%a5%e6%8e%a5" aria-label="光猫桥接">光猫桥接</a></li>
+                    <li>
+                        <a href="#ipv6-%e9%85%8d%e7%bd%ae" aria-label="IPv6 配置">IPv6 配置</a></li>
+                    <li>
+                        <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e8%b7%af%e7%94%b1%e5%99%a8%e9%98%b2%e7%81%ab%e5%a2%99" aria-label="路由器防火墙">路由器防火墙</a><ul>
+                            
+                    <li>
+                        <a href="#%e5%bc%80%e5%90%afssh" aria-label="开启ssh">开启ssh</a></li>
+                    <li>
+                        <a href="#%e5%85%b3%e9%97%adipv6%e9%98%b2%e7%81%ab%e5%a2%99" aria-label="关闭IPv6防火墙">关闭IPv6防火墙</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#ddns" aria-label="ddns">ddns</a></li>
+                    <li>
+                        <a href="#%e6%84%89%e6%82%a6%e8%bf%9e%e6%8e%a5" aria-label="愉悦连接">愉悦连接</a></li>
+                    <li>
+                        <a href="#ftp" aria-label="FTP">FTP</a><ul>
+                            
+                    <li>
+                        <a href="#windows%e5%bc%80%e5%90%afiis%e6%9c%8d%e5%8a%a1" aria-label="Windows开启IIS服务">Windows开启IIS服务</a></li>
+                    <li>
+                        <a href="#%e5%bc%80%e5%90%afftp%e9%98%b2%e7%81%ab%e5%a2%99" aria-label="开启FTP防火墙">开启FTP防火墙</a></li>
+                    <li>
+                        <a href="#%e8%bf%9e%e6%8e%a5%e4%bd%bf%e7%94%a8" aria-label="连接使用">连接使用</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5" aria-label="参考链接">参考链接</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+</div>
+
+
+
 <body>
     <div class="main animate__animated animate__fadeInDown">
         <div class="nav_container animated fadeInDown">
@@ -217,6 +413,7 @@ ip6tables -P FORWARD ACCEPT
                 
                 <div class="doc_comments"></div>
                 
+
             </div>
         </div>
     </div>
@@ -273,6 +470,7 @@ ip6tables -P FORWARD ACCEPT
         color: #515151;
     }
 </style>
+
 
 
 

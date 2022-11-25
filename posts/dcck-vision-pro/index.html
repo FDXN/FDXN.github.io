@@ -33,6 +33,196 @@
     
 </head>
 
+
+
+<head><style type="text/css">:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
+}
+
+.toc details summary {
+    cursor: zoom-in;
+    margin-inline-start: 20px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+</style></head>
+
+
+<div style="position: fixed; right:10px;max-width:600px; overflow:auto; top: 100px; width: 20vw; bottom:30px">
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" aria-label="操作步骤">操作步骤</a><ul>
+                            
+                    <li>
+                        <a href="#%e6%8b%96%e5%85%a5%e6%a8%a1%e5%9d%97" aria-label="拖入模块">拖入模块</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e5%8f%96%e5%83%8f" aria-label="设置取像">设置取像</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%aetoolbox" aria-label="设置Toolbox">设置Toolbox</a><ul>
+                            
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e6%a0%a1%e6%ad%a3" aria-label="设置校正">设置校正</a></li>
+                    <li>
+                        <a href="#%e8%bf%9b%e8%a1%8c%e5%88%b0%e4%b8%8b%e4%b8%80%e5%bc%a0" aria-label="进行到下一张">进行到下一张</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e8%ae%ad%e7%bb%83" aria-label="设置训练">设置训练</a></li>
+                    <li>
+                        <a href="#%e6%b7%bb%e5%8a%a0fix" aria-label="添加Fix">添加Fix</a></li>
+                    <li>
+                        <a href="#%e6%b7%bb%e5%8a%a0%e5%8d%a1%e5%b0%ba" aria-label="添加卡尺">添加卡尺</a></li>
+                    <li>
+                        <a href="#%e8%be%93%e5%87%ba" aria-label="输出">输出</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e6%b7%bb%e5%8a%a0%e8%be%93%e5%87%ba" aria-label="添加输出">添加输出</a></li>
+                    <li>
+                        <a href="#%e8%ae%be%e7%bd%ae%e7%95%8c%e9%9d%a2" aria-label="设置界面">设置界面</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#%e5%af%b9%e6%9c%ba%e5%99%a8%e8%a7%86%e8%a7%89%e7%9a%84%e6%84%9f%e6%82%9f" aria-label="对机器视觉的感悟">对机器视觉的感悟</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+</div>
+
+
+
 <body>
     <div class="main animate__animated animate__fadeInDown">
         <div class="nav_container animated fadeInDown">
@@ -175,6 +365,7 @@
                 
                 <div class="doc_comments"></div>
                 
+
             </div>
         </div>
     </div>
@@ -231,6 +422,7 @@
         color: #515151;
     }
 </style>
+
 
 
 
