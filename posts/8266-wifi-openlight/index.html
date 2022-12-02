@@ -134,7 +134,13 @@
                     <li>
                         <a href="#%e6%8c%89%e9%92%ae" aria-label="按钮">按钮</a></li>
                     <li>
-                        <a href="#%e8%88%b5%e6%9c%ba%e6%97%8b%e8%bd%ac" aria-label="舵机旋转">舵机旋转</a></li></ul>
+                        <a href="#%e8%88%b5%e6%9c%ba%e6%97%8b%e8%bd%ac" aria-label="舵机旋转">舵机旋转</a><ul>
+                            
+                    <li>
+                        <a href="#pwm%e6%8e%a7%e5%88%b6" aria-label="PWM控制">PWM控制</a></li>
+                    <li>
+                        <a href="#arduino%e6%8e%a7%e5%88%b6" aria-label="Arduino控制">Arduino控制</a></li></ul>
+                    </li></ul>
                     </li></ul>
                     </li>
                     <li>
@@ -300,10 +306,14 @@
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-pcb_back.jpg" alt="Web Image"></p>
 <h3 id="原理">原理</h3>
 <h4 id="按钮">按钮</h4>
-<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-button.png" alt=""></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-button.png" alt="Web Image"></p>
 <p>I/O口就是单片机检测的口，高电平有效，在按钮没被按下去之前都是低电平，按钮按下去后，I/O被拉到高电平，单片机收到信号，开始工作。</p>
 <h4 id="舵机旋转">舵机旋转</h4>
-<p>舵机红棕线连接VCC和GND，橙线连接直接设定GPIO口。</p>
+<p>红——————————VCC
+棕——————————GND
+橙——————————信号线</p>
+<h5 id="pwm控制">PWM控制</h5>
+<h5 id="arduino控制">Arduino控制</h5>
 <p>直接使用Arduino的Servo库：</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
