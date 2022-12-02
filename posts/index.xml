@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 20 Nov 2022 21:20:06 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 17:54:31 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Go-cqhttp和NoneBot2搭建出属于自己的QQ机器人</title>
+      <link>https://FDXN.github.io/posts/qqbot/</link>
+      <pubDate>Fri, 25 Nov 2022 17:54:31 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/qqbot/</guid>
+      <description>本篇属于一个补档，毕竟补档是检验好活的唯一标准。 一开始我为什么要弄这个QQ机器人已经不记得了，但是当时做的时候一下子就成功了，很意外，而且大概是某个假期回家的路上弄的，弄完后那个假期就啥也没干了，所以</description>
+    </item>
+    
     <item>
       <title>德创VisionPro操作和可视化图形化机器视觉</title>
       <link>https://FDXN.github.io/posts/dcck-vision-pro/</link>
@@ -80,7 +89,7 @@
     </item>
     
     <item>
-      <title>集百(一？)家之所长的ASF挂卡</title>
+      <title>伪装成ASF挂卡记录的Tumx记录</title>
       <link>https://FDXN.github.io/posts/recall-copy-asf/</link>
       <pubDate>Sat, 25 Sep 2021 00:02:07 +0800</pubDate>
       

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>课程 on 黄粱一梦</title>
+    <link>https://FDXN.github.io/tags/%E8%AF%BE%E7%A8%8B/</link>
+    <description>Recent content in 课程 on 黄粱一梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Nov 2022 21:20:06 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AF%BE%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>德创VisionPro操作和可视化图形化机器视觉</title>
+      <link>https://FDXN.github.io/posts/dcck-vision-pro/</link>
+      <pubDate>Sun, 20 Nov 2022 21:20:06 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/dcck-vision-pro/</guid>
+      <description>上次在实习时第一个参观的就是德创的机器视觉，虽然说公司有点小，但还是可以试试看这个软件的。 毕竟可视化图形化机器视觉还是听上去蛮有搞头的，正好学校也有这个实验。 说实话这个东西不知道能不能发在网上，不过也</description>
+    </item>
+    
+    <item>
+      <title>GDB调试程序</title>
+      <link>https://FDXN.github.io/posts/gdb/</link>
+      <pubDate>Sun, 29 May 2022 01:42:05 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/gdb/</guid>
+      <description>//本次是帮一个漂亮姐姐完成她的选修课，本来只是打算用markdown来做个报告，但是写都写了，不如就发出来凑一下做个学期的日记。说起来这老师也是离谱，改怎么说他呢，只能说不愧是苏大的老师，讲课就是随</description>
+    </item>
+    
+  </channel>
+</rss>
