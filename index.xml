@@ -6,7 +6,16 @@
     <description>Recent content on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Nov 2022 17:54:31 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Dec 2022 00:15:34 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本来是想刷大佬自制OpenWrt来更好做mosdns和文件共享结果光OpenWrt就刷了一天</title>
+      <link>https://FDXN.github.io/posts/openwrt-sharing/</link>
+      <pubDate>Sun, 04 Dec 2022 00:15:34 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/openwrt-sharing/</guid>
+      <description>最近这玩意儿写的越来越水了，本来是不想写的，但是过程实在是太曲折了，我自己都觉得离谱，一个简单的openwrt都刷了大几个小时，实在受不了不得不写一个 这个是为了加mosdns的时候能有交互界面，我一开</description>
+    </item>
+    
     <item>
       <title>使用Go-cqhttp和NoneBot2搭建出属于自己的QQ机器人</title>
       <link>https://FDXN.github.io/posts/qqbot/</link>
