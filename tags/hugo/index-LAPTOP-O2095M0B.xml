@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 黄粱一梦</title>
+    <link>https://FDXN.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on 黄粱一梦</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 07 Jul 2021 16:14:34 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo部署与踩坑</title>
+      <link>https://FDXN.github.io/posts/hugo-deployment-debugging/</link>
+      <pubDate>Wed, 07 Jul 2021 16:14:34 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/hugo-deployment-debugging/</guid>
+      <description>Hugo的部署 自安装hugo起，至此blog正式部署成功大概过去了半个月 说实话，我也懒得整理部署hugo的指令了，只是简述一下整个hugo部署以来的历程 安装hugo 直接从github上下载，或者clo</description>
+    </item>
+    
+  </channel>
+</rss>

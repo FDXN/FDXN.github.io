@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FDXN" />
+	
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	
+	
+	
+	<title>宿舍自动联网之鸟枪换炮大材小用我乐意之树莓派实现 ｜ 黄粱一梦</title>
+	
+    
+    
+    <meta name="description" content="自从那块香蕉派烧了之后，-135￥，心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去实" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://FDXN.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.iocss/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+
+
+<head><style type="text/css">:root {
+    --nav-width: 1380px;
+    --article-width: 650px;
+    --toc-width: 300px;
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
+}
+
+.toc details summary {
+    cursor: zoom-in;
+    margin-inline-start: 20px;
+    padding: 12px 0;
+}
+
+.toc details[open] summary {
+    font-weight: 500;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 600;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+</style></head>
+
+
+<div style="position: fixed; right:10px;max-width:600px; overflow:auto; top: 100px; width: 20vw; bottom:30px">
+<aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details >
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86" aria-label="实现原理">实现原理</a></li>
+                    <li>
+                        <a href="#%e6%96%b0%e5%a2%9e%e5%86%85%e5%ae%b9" aria-label="新增内容">新增内容</a></li>
+                    <li>
+                        <a href="#%e5%a4%a7%e4%bd%93%e6%80%9d%e8%b7%af" aria-label="大体思路">大体思路</a></li>
+                    <li>
+                        <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" aria-label="代码实现">代码实现</a></li>
+                    <li>
+                        <a href="#%e9%81%87%e5%88%b0%e9%97%ae%e9%a2%98" aria-label="遇到问题">遇到问题</a></li>
+                    <li>
+                        <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
+                    <li>
+                        <a href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5" aria-label="参考链接">参考链接</a>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+</div>
+
+
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://FDXN.github.io">
+                    <span>黄粱一梦</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">正因是梦，尤需真活。</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://space.bilibili.com/8346968" title="bilibili" target="_blank"><i class="ri-bilibili-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/FDXN" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1005279543&amp;site=qq&amp;menu=yes" title="qq" target="_blank"><i class="ri-qq-fill"></i></a>
+                
+                
+                <a href="https://FDXN.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/auto-reconnect-plus/'>宿舍自动联网之鸟枪换炮大材小用我乐意之树莓派实现</a></h2>
+                        <span class="date">2021.12.18</span>
+                    </div>
+                    <div class="post_content markdown"><p>自从那块香蕉派烧了之后，-135￥，心痛，但是项目起都起头了，就不得不做下去。
+这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。
+这一次也算是较为完美的解决了这个问题，到最后我是否会真的去实装这个东西就是另外一回事儿了。</p>
+<h2 id="实现原理">实现原理</h2>
+<p>关于这个我在上一次的里面有提到过，不过这次使用的是树莓派，鸟枪换炮了属于是。不得不说，一分价钱一分货，用树莓派就是很爽。</p>
+<h2 id="新增内容">新增内容</h2>
+<p>这次的更新是一次大更新，上次<a href="/posts/auto-reconnect/#%E5%89%A9%E4%BD%99%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98">几个问题</a>，换上树莓派后其中中间三个都已经迎刃而解，第五个也是加钱就能完成的事情，钱能解决的事情就不是事情。第一点也是本次的更新重点。</p>
+<h2 id="大体思路">大体思路</h2>
+<p>在之前的基础上，增加屏幕显示和切换状态，增加到两种联网模式，扫描和定时，分别是每隔几秒检查网络连接和每天指定时间断网联网一次，使用按钮切换状态，并显示在oled屏幕上，同时屏幕上显示些时间什么的，本来还是想显示天气的，但是天气好爬到，显示一个建议的小图标实属不好做，同一种格式的十几种天气图标，实属没搞到也放不下了，最后选择整一个高级钟表。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/auto_reconnect-plus_clock.png" alt="Web Image"></p>
+<h2 id="代码实现">代码实现</h2>
+<p>实现起来的时候问题并不多，也不是很复杂。当然，因为花的时间不多，水平也比较业余，还有很多可以优化的部分，但暂时没有更新的欲望，也没有优化的想法。等啥时候有心情优化完，再放出来，以免丢人现眼。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/auto_reconnect_plus-show.gif" alt="Web Image"></p>
+<h2 id="遇到问题">遇到问题</h2>
+<ol>
+<li>首先是屏幕，屏幕实在是太小了，小小一块128*64的屏幕，想放下的东西太多，到最后只能删删减减。</li>
+<li>其次就是驱动的问题，一开始使用的驱动是较老的驱动，导致使用起来问题频出，最后还是换成最新的驱动，在看着官方文档加别人的代码（还有直接复制的官方给的example）才勉勉强强完成。</li>
+<li>还有一点就是多线程，因为其中是靠无限循环实在的核心功能，但在重新联网的过程中时，不能让“高级钟表”停下来等联网到成功，于是新引入了线程，多线程并驾齐驱，但也是第一次使用线程，手法有些拙劣，又巨幅优化空间。</li>
+<li>使用的cookies联网，不具有可复制性，对使用者有一定的门槛需求，可以改成输入账号密码型，并做好个人配置文件以及日志。</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>其实做到这一步，能不能联网已经不是上面重要的事情了，最重要的是把这口气出了，现在正在补blog的我知道，实际上这个东西根本没有用几天，我就懒得维护了，小毛病不断，现在是2022年的5月，对于当时的很多心路历程，困难啥的我都记不大清了，纯粹是看着代码回忆当时的想法，最重要的还是做个记录，未来慢慢完善补充。</p>
+<h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="https://github.com/rm-hull/luma.oled">OLED显示驱动</a></li>
+</ul>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://FDXN.github.io/tags/linux/">Linux</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/python/">python</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>记录</span>
+    </div>
+</footer>
+    <script src="https://FDXN.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://FDXN.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://FDXN.github.io/js/fancybox.min.js"></script>
+<script src="https://FDXN.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+
+</body>
+
+</html>
