@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FDXN" />
+	
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+	
+	
+	
+	<title>GDB调试程序 ｜ 黄粱一梦</title>
+	
+    
+    
+    <meta name="description" content="不一样的C" />
+    
+
+    
+
+	
+    
+    <link rel="shortcut icon" href="https://FDXN.github.io/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.iocss/normalize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/zozo.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://FDXN.github.io/css/highlight.css" />
+
+    
+    
+</head>
+
+<body>
+    <div class="main animate__animated animate__fadeInDown">
+        <div class="nav_container animated fadeInDown">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/posts/">Archive</a>
+            </li>
+            
+            <li>
+                <a href="/tags/">Tags</a>
+            </li>
+            
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon"><i class="ri-menu-line"></i></a>
+    </div>
+</div>
+        <div class="header animated fadeInDown">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://FDXN.github.io">
+                    <span>黄粱一梦</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">正因是梦，尤需真活。</p>
+            <div class="my_socials">
+                
+                
+                <a href="https://space.bilibili.com/8346968" title="bilibili" target="_blank"><i class="ri-bilibili-fill"></i></a>
+                
+                
+                
+                <a href="https://github.com/FDXN" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                
+                
+                
+                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1005279543&amp;site=qq&amp;menu=yes" title="qq" target="_blank"><i class="ri-qq-fill"></i></a>
+                
+                
+                <a href="https://FDXN.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post_page">
+                <div class="post animate__animated animate__fadeInDown">
+                    <div class="post_title post_detail_title">
+                        <h2><a href='/posts/gdb-laptop-o2095m0b/'>GDB调试程序</a></h2>
+                        <span class="date">2022.05.29</span>
+                    </div>
+                    <div class="post_content markdown"><p>//本次是帮一个漂亮姐姐完成她的选修课，本来只是打算用markdown来做个报告，但是写都写了，不如就发出来凑一下做个学期的日记。说起来这老师也是离谱，改怎么说他呢，只能说不愧是苏大的老师，讲课就是随性，哦不对，他根本没讲课，上一课是Linux安装软件，这节课就讲GDB，作为一门网课甚至没有网课视频，属实离谱&hellip;</p>
+<p>首先点开README，读一读信息。</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">gdb_training: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs),
+for GNU/Linux 2.6.24, BuildID[sha1]=def718c559fc3a8800b112d936843fde0fe72fe3, not stripped
+</code></pre></div><h2 id="32位linux">32位Linux</h2>
+<p>以上较为关键的是32位的Linux，在如今这个环境，尽管我手上有四个不同的Linux发行版，但就是没有一个是32位，当然64位的系统向下兼容肯定是可以做到的，至于方法我贴在这里，有需要的同学可以去试一试$^{[1]}$，反正我没有成功。</p>
+<p>于是我直接下了一个VirtualBox，网上找到了一个32位的镜像(Ubuntu Trusty 14.04 (LTS) (32-bit))，装了一下。</p>
+<h2 id="熟悉gdb操作">熟悉GDB操作</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">开始调试。
+<span class="nv">$gdb</span> gdb_training_simple
+输入断点,b <span class="nb">break</span>
+<span class="o">(</span>gdb<span class="o">)</span> b main
+<span class="o">(</span>gdb<span class="o">)</span> b *0x8048821
+参看断点
+<span class="o">(</span>gdb<span class="o">)</span> info b
+运行,r run
+<span class="o">(</span>gdb<span class="o">)</span> r
+执行到下一行
+<span class="o">(</span>gdb<span class="o">)</span> nexti
+进入函数调用
+<span class="o">(</span>gdb<span class="o">)</span> stepi
+直接结束函数
+<span class="o">(</span>gdb<span class="o">)</span> finish
+直接运行到下一个断点
+<span class="o">(</span>gdb<span class="o">)</span> c <span class="k">continue</span>
+参看不同寄存器
+<span class="o">(</span>gdb<span class="o">)</span> print <span class="nv">$eax</span>
+</code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_breakpoint_init.png" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-run_program.png" alt="Web Image"></p>
+<p>gdb有一个语法糖，回车可以重复上一个命令，这样使得我们使用步进指令时会很方便。</p>
+<p>关于layout分割窗口主要有以下几种用法$^{[2]}$：</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">layout src：显示源代码窗口
+layout asm：显示汇编窗口
+layout regs：显示源代码/汇编和寄存器窗口
+layout split：显示源代码和汇编窗口
+layout next：显示下一个layout
+layout prev：显示上一个layout
+Ctrl + L：刷新窗口
+Ctrl + x，再按1：单窗口模式，显示一个窗口
+Ctrl + x，再按2：双窗口模式，显示两个窗口
+Ctrl + x，再按a：回到传统模式，即退出layout，回到执行layout之前的调试窗口。
+</code></pre></div><p>可以一边查看代码，一边测试，非常好用。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-layout.png" alt="Web Image"></p>
+<h2 id="完成作业">完成作业</h2>
+<p>首先看到main的源文件，其中有一条看似自相矛盾的判断条件，这就是我们所需要破解的地方。</p>
+<div class="highlight"><pre class="chroma"><code class="language-C" data-lang="C">  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">&#34;Failed!&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2003</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+</code></pre></div><p>正常情况下，我们怎么输入都不可能通过这个，毕竟没有数即小于等于2000也等于2003。</p>
+<p>于是我们找到这两个if的十六进制位置。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-find_address.jpg" alt="Web Image"></p>
+<p>分别是<code>0x8048896</code>和<code>0x80488af</code></p>
+<p>打上断点</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_breakpoint.png" alt="Web Image"></p>
+<p>开始运行，输入1999 3 31，首先先通过2000的判断，然后再修改为2003，进入下一个判断。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-pass_2000.png" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_2003.png" alt="Web Image"></p>
+<p>连续跳到最后显示</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
+</code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-suspected_error.png" alt="Web Image"></p>
+<p>似乎是我们做错了，于是看到代码，还有一个1-30的，这次我们换成10，我们再试一次。</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-try_again.png" alt="Web Image"></p>
+<p>最后结果好像还是不正确，显示的还是</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-clear_error.png" alt="Web Image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">You Are Fooled. Not CORRECT!
+</code></pre></div><p>但相较于上面那个，少了一段a string startswith scuctf，所以我认为，答案就是</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}
+</code></pre></div><p>或者</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
+</code></pre></div><p>//虽然看起来不像，但是作为一次选修的网课，这个过程应该是够了。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>
+<p>[1] <a href="https://www.jianshu.com/p/0dacf989a15e">https://www.jianshu.com/p/0dacf989a15e</a></p>
+</li>
+<li>
+<p>[2] <a href="https://blog.csdn.net/zhangjs0322/article/details/10152279">https://blog.csdn.net/zhangjs0322/article/details/10152279</a></p>
+</li>
+<li>
+<p>[3] <a href="https://coding.tools/cn/md5">https://coding.tools/cn/md5</a></p>
+</li>
+</ul>
+</div>
+                    <div class="post_footer">
+                        
+                        <div class="meta">
+                            <div class="info">
+                                <span class="field tags">
+                                    <i class="ri-stack-line"></i>
+                                    
+                                    <a href="https://FDXN.github.io/tags/%E8%AF%BE%E7%A8%8B/">课程</a>
+                                    
+                                    <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
+                                    
+                                </span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="doc_comments"></div>
+                
+            </div>
+        </div>
+    </div>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="https://varkai.com">Designed by VarKai,</a>
+        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+    </div>
+
+    <div class="footer_slogan">
+        <span>记录</span>
+    </div>
+</footer>
+    <script src="https://FDXN.github.io/js/jquery-3.5.1.min.js"></script>
+<link href="https://FDXN.github.io/css/fancybox.min.css" rel="stylesheet">
+<script src="https://FDXN.github.io/js/fancybox.min.js"></script>
+<script src="https://FDXN.github.io/js/zozo.js"></script>
+
+
+<script type="text/javascript" async
+    src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                TeX: {
+                    equationNumbers: { autoNumber: "AMS" },
+                    extensions: ["AMSmath.js", "AMSsymbols.js"]
+                }
+            }
+        });
+
+        MathJax.Hub.Queue(function () {
+            
+            
+            
+            var all = MathJax.Hub.getAllJax(), i;
+            for (i = 0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+<style>
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+        color: #515151;
+    }
+</style>
+
+
+
+</body>
+
+</html>

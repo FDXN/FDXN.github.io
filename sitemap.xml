@@ -3,13 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://FDXN.github.io/posts/</loc>
-    <lastmod>2022-07-20T13:04:00+08:00</lastmod>
+    <lastmod>2024-02-26T13:35:32+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/vr-resouces/</loc>
+    <lastmod>2024-02-26T13:35:32+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/</loc>
+    <lastmod>2024-02-26T13:35:32+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/tags/qqbot/</loc>
+    <lastmod>2022-11-25T17:54:31+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/tags/</loc>
+    <lastmod>2022-11-25T17:54:31+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/qqbot-laptop-o2095m0b/</loc>
+    <lastmod>2022-11-25T17:54:31+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-11-25T17:54:31+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/dcck-vision-pro/</loc>
+    <lastmod>2022-11-20T21:20:06+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/tags/%E8%AF%BE%E7%A8%8B/</loc>
+    <lastmod>2022-11-20T21:20:06+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/write-machine/</loc>
+    <lastmod>2022-10-31T00:23:57+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/ipv6rd/</loc>
     <lastmod>2022-07-20T13:04:00+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/</loc>
-    <lastmod>2022-07-20T13:04:00+08:00</lastmod>
+    <loc>https://FDXN.github.io/posts/gdb-laptop-o2095m0b/</loc>
+    <lastmod>2022-05-29T01:42:05+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/gdb/</loc>
     <lastmod>2022-05-29T01:42:05+08:00</lastmod>
@@ -20,13 +47,10 @@
     <loc>https://FDXN.github.io/tags/c/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/tags/</loc>
+    <loc>https://FDXN.github.io/posts/8266-wifi-openlight-laptop-o2095m0b/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/8266-wifi-openlight/</loc>
-    <lastmod>2022-05-02T00:19:58+08:00</lastmod>
-  </url><url>
-    <loc>https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-05-02T00:19:58+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/</loc>
@@ -38,11 +62,20 @@
     <loc>https://FDXN.github.io/tags/python/</loc>
     <lastmod>2021-12-18T00:39:58+08:00</lastmod>
   </url><url>
+    <loc>https://FDXN.github.io/posts/auto-reconnect-plus-laptop-o2095m0b/</loc>
+    <lastmod>2021-12-18T00:39:58+08:00</lastmod>
+  </url><url>
     <loc>https://FDXN.github.io/posts/auto-reconnect-plus/</loc>
     <lastmod>2021-12-18T00:39:58+08:00</lastmod>
   </url><url>
+    <loc>https://FDXN.github.io/posts/auto-reconnect-laptop-o2095m0b/</loc>
+    <lastmod>2021-10-18T22:46:46+08:00</lastmod>
+  </url><url>
     <loc>https://FDXN.github.io/posts/auto-reconnect/</loc>
     <lastmod>2021-10-18T22:46:46+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/plan-laptop-o2095m0b/</loc>
+    <lastmod>2021-09-25T05:11:40+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/plan/</loc>
     <lastmod>2021-09-25T05:11:40+08:00</lastmod>
@@ -53,7 +86,13 @@
     <loc>https://FDXN.github.io/tags/%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2021-09-25T00:02:07+08:00</lastmod>
   </url><url>
+    <loc>https://FDXN.github.io/posts/recall-copy-asf/</loc>
+    <lastmod>2021-09-25T00:02:07+08:00</lastmod>
+  </url><url>
     <loc>https://FDXN.github.io/tags/hugo/</loc>
+    <lastmod>2021-07-07T16:14:34+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/posts/hugo-deployment-debugging/</loc>
     <lastmod>2021-07-07T16:14:34+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/posts/hugo-deployment-debugging/</loc>
@@ -65,8 +104,14 @@
     <loc>https://FDXN.github.io/tags/git/</loc>
     <lastmod>2021-07-03T03:17:54+08:00</lastmod>
   </url><url>
+    <loc>https://FDXN.github.io/posts/git-laptop-o2095m0b/</loc>
+    <lastmod>2021-07-03T03:17:54+08:00</lastmod>
+  </url><url>
     <loc>https://FDXN.github.io/posts/git/</loc>
     <lastmod>2021-07-03T03:17:54+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/categories/</loc>
+    <lastmod>2021-07-02T13:59:17+08:00</lastmod>
   </url><url>
     <loc>https://FDXN.github.io/tags/markdown/</loc>
     <lastmod>2021-07-02T13:59:17+08:00</lastmod>
@@ -74,9 +119,15 @@
     <loc>https://FDXN.github.io/posts/markdown/</loc>
     <lastmod>2021-07-02T13:59:17+08:00</lastmod>
   </url><url>
+    <loc>https://FDXN.github.io/posts/markdown/</loc>
+    <lastmod>2021-07-02T13:59:17+08:00</lastmod>
+  </url><url>
+    <loc>https://FDXN.github.io/categories/one/</loc>
+    <lastmod>2021-07-02T13:59:17+08:00</lastmod>
+  </url><url>
     <loc>https://FDXN.github.io/about/</loc>
     <lastmod>2021-06-25T22:15:05+08:00</lastmod>
   </url><url>
-    <loc>https://FDXN.github.io/categories/</loc>
+    <loc>https://FDXN.github.io/posts/openwrt-sharing/</loc>
   </url>
 </urlset>

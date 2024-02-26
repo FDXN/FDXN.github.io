@@ -101,58 +101,58 @@
                     </div>
                     <div class="post_content markdown"><p>//本次是帮一个同学完成她的选修课，本来只是打算用markdown来做个报告，但是写都写了，不如就发出来凑一下做个学期的日记。说起来这老师也是离谱，改怎么说他呢，只能说不愧是苏大的老师，讲课就是随性，哦不对，他根本没讲课，上一课是Linux安装软件，这节课就讲GDB，作为一门网课甚至没有网课视频，属实离谱&hellip;</p>
 <p>首先点开README，读一读信息。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">gdb_training: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs),
-</span></span><span class="line"><span class="cl">for GNU/Linux 2.6.24, BuildID[sha1]=def718c559fc3a8800b112d936843fde0fe72fe3, not stripped
-</span></span></code></pre></div><h2 id="32位linux">32位Linux</h2>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">gdb_training: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked (uses shared libs),
+for GNU/Linux 2.6.24, BuildID[sha1]=def718c559fc3a8800b112d936843fde0fe72fe3, not stripped
+</code></pre></div><h2 id="32位linux">32位Linux</h2>
 <p>以上较为关键的是32位的Linux，在如今这个环境，尽管我手上有四个不同的Linux发行版，但就是没有一个是32位，当然64位的系统向下兼容肯定是可以做到的，至于方法我贴在这里，有需要的同学可以去试一试$^{[1]}$，反正我没有成功。</p>
 <p>于是我直接下了一个VirtualBox，网上找到了一个32位的镜像(Ubuntu Trusty 14.04 (LTS) (32-bit))，装了一下。</p>
 <h2 id="熟悉gdb操作">熟悉GDB操作</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">开始调试。
-</span></span><span class="line"><span class="cl"><span class="nv">$gdb</span> gdb_training_simple
-</span></span><span class="line"><span class="cl">输入断点,b <span class="nb">break</span>
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> b main
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> b *0x8048821
-</span></span><span class="line"><span class="cl">参看断点
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> info b
-</span></span><span class="line"><span class="cl">运行,r run
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> r
-</span></span><span class="line"><span class="cl">执行到下一行
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> nexti
-</span></span><span class="line"><span class="cl">进入函数调用
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> stepi
-</span></span><span class="line"><span class="cl">直接结束函数
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> finish
-</span></span><span class="line"><span class="cl">直接运行到下一个断点
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> c <span class="k">continue</span>
-</span></span><span class="line"><span class="cl">参看不同寄存器
-</span></span><span class="line"><span class="cl"><span class="o">(</span>gdb<span class="o">)</span> print <span class="nv">$eax</span>
-</span></span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_breakpoint_init.png" alt="Web Image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">开始调试。
+<span class="nv">$gdb</span> gdb_training_simple
+输入断点,b <span class="nb">break</span>
+<span class="o">(</span>gdb<span class="o">)</span> b main
+<span class="o">(</span>gdb<span class="o">)</span> b *0x8048821
+参看断点
+<span class="o">(</span>gdb<span class="o">)</span> info b
+运行,r run
+<span class="o">(</span>gdb<span class="o">)</span> r
+执行到下一行
+<span class="o">(</span>gdb<span class="o">)</span> nexti
+进入函数调用
+<span class="o">(</span>gdb<span class="o">)</span> stepi
+直接结束函数
+<span class="o">(</span>gdb<span class="o">)</span> finish
+直接运行到下一个断点
+<span class="o">(</span>gdb<span class="o">)</span> c <span class="k">continue</span>
+参看不同寄存器
+<span class="o">(</span>gdb<span class="o">)</span> print <span class="nv">$eax</span>
+</code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_breakpoint_init.png" alt="Web Image"></p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-run_program.png" alt="Web Image"></p>
 <p>gdb有一个语法糖，回车可以重复上一个命令，这样使得我们使用步进指令时会很方便。</p>
 <p>关于layout分割窗口主要有以下几种用法$^{[2]}$：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">layout src：显示源代码窗口
-</span></span><span class="line"><span class="cl">layout asm：显示汇编窗口
-</span></span><span class="line"><span class="cl">layout regs：显示源代码/汇编和寄存器窗口
-</span></span><span class="line"><span class="cl">layout split：显示源代码和汇编窗口
-</span></span><span class="line"><span class="cl">layout next：显示下一个layout
-</span></span><span class="line"><span class="cl">layout prev：显示上一个layout
-</span></span><span class="line"><span class="cl">Ctrl + L：刷新窗口
-</span></span><span class="line"><span class="cl">Ctrl + x，再按1：单窗口模式，显示一个窗口
-</span></span><span class="line"><span class="cl">Ctrl + x，再按2：双窗口模式，显示两个窗口
-</span></span><span class="line"><span class="cl">Ctrl + x，再按a：回到传统模式，即退出layout，回到执行layout之前的调试窗口。
-</span></span></code></pre></div><p>可以一边查看代码，一边测试，非常好用。</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">layout src：显示源代码窗口
+layout asm：显示汇编窗口
+layout regs：显示源代码/汇编和寄存器窗口
+layout split：显示源代码和汇编窗口
+layout next：显示下一个layout
+layout prev：显示上一个layout
+Ctrl + L：刷新窗口
+Ctrl + x，再按1：单窗口模式，显示一个窗口
+Ctrl + x，再按2：双窗口模式，显示两个窗口
+Ctrl + x，再按a：回到传统模式，即退出layout，回到执行layout之前的调试窗口。
+</code></pre></div><p>可以一边查看代码，一边测试，非常好用。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-layout.png" alt="Web Image"></p>
 <h2 id="完成作业">完成作业</h2>
 <p>首先看到main的源文件，其中有一条看似自相矛盾的判断条件，这就是我们所需要破解的地方。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">puts</span><span class="p">(</span><span class="s">&#34;Failed!&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2003</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span></code></pre></div><p>正常情况下，我们怎么输入都不可能通过这个，毕竟没有数即小于等于2000也等于2003。</p>
+<div class="highlight"><pre class="chroma"><code class="language-C" data-lang="C">  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">puts</span><span class="p">(</span><span class="s">&#34;Failed!&#34;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2003</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+</code></pre></div><p>正常情况下，我们怎么输入都不可能通过这个，毕竟没有数即小于等于2000也等于2003。</p>
 <p>于是我们找到这两个if的十六进制位置。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-find_address.jpg" alt="Web Image"></p>
 <p>分别是<code>0x8048896</code>和<code>0x80488af</code></p>
@@ -162,18 +162,18 @@
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-pass_2000.png" alt="Web Image"></p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-set_2003.png" alt="Web Image"></p>
 <p>连续跳到最后显示</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TEXT" data-lang="TEXT"><span class="line"><span class="cl">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
-</span></span></code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-suspected_error.png" alt="Web Image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
+</code></pre></div><p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-suspected_error.png" alt="Web Image"></p>
 <p>似乎是我们做错了，于是看到代码，还有一个1-30的，这次我们换成10，我们再试一次。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-try_again.png" alt="Web Image"></p>
 <p>最后结果好像还是不正确，显示的还是</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/gdb-clear_error.png" alt="Web Image"></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TEXT" data-lang="TEXT"><span class="line"><span class="cl">You Are Fooled. Not CORRECT!
-</span></span></code></pre></div><p>但相较于上面那个，少了一段a string startswith scuctf，所以我认为，答案就是</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TEXT" data-lang="TEXT"><span class="line"><span class="cl">scuctf{6a558c2e185b78d75d43919278e510ac}
-</span></span></code></pre></div><p>或者</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TEXT" data-lang="TEXT"><span class="line"><span class="cl">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
-</span></span></code></pre></div><p>//虽然看起来不像，但是作为一次选修的网课，这个过程应该是够了。</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">You Are Fooled. Not CORRECT!
+</code></pre></div><p>但相较于上面那个，少了一段a string startswith scuctf，所以我认为，答案就是</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}
+</code></pre></div><p>或者</p>
+<div class="highlight"><pre class="chroma"><code class="language-TEXT" data-lang="TEXT">scuctf{6a558c2e185b78d75d43919278e510ac}You Are Fooled. Not CORRECT!
+</code></pre></div><p>//虽然看起来不像，但是作为一次选修的网课，这个过程应该是够了。</p>
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li>

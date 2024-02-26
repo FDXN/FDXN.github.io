@@ -6,7 +6,52 @@
     <description>Recent content in 记录 on 黄粱一梦</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 May 2022 00:19:58 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Nov 2022 17:54:31 +0800</lastBuildDate><atom:link href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Go-cqhttp和NoneBot2搭建出属于自己的QQ机器人</title>
+      <link>https://FDXN.github.io/posts/qqbot-laptop-o2095m0b/</link>
+      <pubDate>Fri, 25 Nov 2022 17:54:31 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/qqbot-laptop-o2095m0b/</guid>
+      <description>本篇属于一个补档，毕竟补档是检验好活的唯一标准。 一开始我为什么要弄这个QQ机器人已经不记得了，但是当时做的时候一下子就成功了，很意外，而且大概是某个假期回家的路上弄的，弄完后那个假期就啥也没干了，所以</description>
+    </item>
+    
+    <item>
+      <title>德创VisionPro操作和可视化图形化机器视觉</title>
+      <link>https://FDXN.github.io/posts/dcck-vision-pro/</link>
+      <pubDate>Sun, 20 Nov 2022 21:20:06 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/dcck-vision-pro/</guid>
+      <description>上次在实习时第一个参观的就是德创的机器视觉，虽然说公司有点小，但还是可以试试看这个软件的。 毕竟可视化图形化机器视觉还是听上去蛮有搞头的，正好学校也有这个实验。 说实话这个东西不知道能不能发在网上，不过也</description>
+    </item>
+    
+    <item>
+      <title>三轴CNC改装写字机可能性验证</title>
+      <link>https://FDXN.github.io/posts/write-machine/</link>
+      <pubDate>Mon, 31 Oct 2022 00:23:57 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/write-machine/</guid>
+      <description>我们原以为是毛坯房装修，做着做着发现是从砖开始砌，做到最后没想到居然是从烧砖开始。 大概是很久前就想把那台三轴CNC重新利用上，可是一直没有机会实现，一个人不是很有动力来完成，然后这次和wf的讨论，正好</description>
+    </item>
+    
+    <item>
+      <title>GDB调试程序</title>
+      <link>https://FDXN.github.io/posts/gdb-laptop-o2095m0b/</link>
+      <pubDate>Sun, 29 May 2022 01:42:05 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/gdb-laptop-o2095m0b/</guid>
+      <description>//本次是帮一个漂亮姐姐完成她的选修课，本来只是打算用markdown来做个报告，但是写都写了，不如就发出来凑一下做个学期的日记。说起来这老师也是离谱，改怎么说他呢，只能说不愧是苏大的老师，讲课就是随</description>
+    </item>
+    
+    <item>
+      <title>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事</title>
+      <link>https://FDXN.github.io/posts/8266-wifi-openlight-laptop-o2095m0b/</link>
+      <pubDate>Mon, 02 May 2022 00:19:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/8266-wifi-openlight-laptop-o2095m0b/</guid>
+      <description>前言 由于我最新的电脑桌配置，开关在我屏幕的后面,导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 ↑我的新配置，开关就在这个屏幕后面，手根本碰不到 这次用的是ESP8266，并使用点灯科技接入</description>
+    </item>
+    
     <item>
       <title>关于我用伺服电机模拟按下开关来控制灯开关这种看起来很蠢的事</title>
       <link>https://FDXN.github.io/posts/8266-wifi-openlight/</link>
@@ -14,6 +59,15 @@
       
       <guid>https://FDXN.github.io/posts/8266-wifi-openlight/</guid>
       <description>前言 由于我最新的电脑桌配置，开关在我屏幕的后面,导致我桌前的那个灯开关不好操作，于是我就想着能否整个自动的。 ↑我的新配置，开关就在这个屏幕后面，手根本碰不到 这次用的是ESP8266，并使用点灯科技接入</description>
+    </item>
+    
+    <item>
+      <title>宿舍自动联网之鸟枪换炮大材小用我乐意之树莓派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect-plus-laptop-o2095m0b/</link>
+      <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect-plus-laptop-o2095m0b/</guid>
+      <description>自从那块香蕉派烧了之后，-135￥，心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去实</description>
     </item>
     
     <item>
@@ -27,6 +81,15 @@
     
     <item>
       <title>宿舍自动联网之香蕉派实现</title>
+      <link>https://FDXN.github.io/posts/auto-reconnect-laptop-o2095m0b/</link>
+      <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/auto-reconnect-laptop-o2095m0b/</guid>
+      <description>最近晚上偶尔会出现断网的情况，于是我摸索了一下requests的使用方法，写了一个自动重连的脚本，但是迎面而来的问题就是，怎么长时间运行呢？ 用带有WiFi的小型模块跑脚本 我的第一想法就是有没有一款单片</description>
+    </item>
+    
+    <item>
+      <title>宿舍自动联网之香蕉派实现</title>
       <link>https://FDXN.github.io/posts/auto-reconnect/</link>
       <pubDate>Mon, 18 Oct 2021 22:46:46 +0800</pubDate>
       
@@ -36,11 +99,29 @@
     
     <item>
       <title>近期的计划</title>
+      <link>https://FDXN.github.io/posts/plan-laptop-o2095m0b/</link>
+      <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/plan-laptop-o2095m0b/</guid>
+      <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 第一期 2021.9.25 再整一个动态网页 2021.10.15完成 为博客添加评论系统 不想做了 记录一下matlab的笔记 2021.11.02下载完成 不想做了 整理一下</description>
+    </item>
+    
+    <item>
+      <title>近期的计划</title>
       <link>https://FDXN.github.io/posts/plan/</link>
       <pubDate>Sat, 25 Sep 2021 05:11:40 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/plan/</guid>
       <description>就，感觉有很多事想做，但是总是记不得去做。先记着，再说。 第一期 2021.9.25 再整一个动态网页 2021.10.15完成 为博客添加评论系统 不想做了 记录一下matlab的笔记 2021.11.02下载完成 不想做了 整理一下</description>
+    </item>
+    
+    <item>
+      <title>Hugo部署与踩坑</title>
+      <link>https://FDXN.github.io/posts/hugo-deployment-debugging/</link>
+      <pubDate>Wed, 07 Jul 2021 16:14:34 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/hugo-deployment-debugging/</guid>
+      <description>Hugo的部署 自安装hugo起，至此blog正式部署成功大概过去了半个月 说实话，我也懒得整理部署hugo的指令了，只是简述一下整个hugo部署以来的历程 安装hugo 直接从github上下载，或者clo</description>
     </item>
     
     <item>
@@ -77,13 +158,13 @@
       
       <guid>https://FDXN.github.io/posts/markdown/</guid>
       <description>&lt;h2 id=&#34;一标题&#34;&gt;一、标题&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# 这是一级标题
+&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## 这是二级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### 这是三级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### 这是四级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### 这是五级标题
+&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### 这是六级标题
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>
