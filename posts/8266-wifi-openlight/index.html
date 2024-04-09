@@ -117,6 +117,29 @@
 <p>为了方便固定，我将走线部分焊在了洞洞板上，焊接工艺实在是不堪入目，但，能用就行。未来肯定会用PCB代替，关键是现在这根信号线实在不牢，但我也懒得改。</p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-welding_front.jpg" alt="Web Image"></p>
 <p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-welding_back.jpg" alt="Web Image"></p>
+<p>8.31日更新为PCB板</p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-pcb_front.jpg" alt="Web Image"></p>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-pcb_back.jpg" alt="Web Image"></p>
+<h3 id="原理">原理</h3>
+<h4 id="按钮">按钮</h4>
+<p><img src="https://fdxn.oss-cn-hangzhou.aliyuncs.com/image/8266openlight-button.png" alt="Web Image"></p>
+<p>I/O口就是单片机检测的口，高电平有效，在按钮没被按下去之前都是低电平，按钮按下去后，I/O被拉到高电平，单片机收到信号，开始工作。</p>
+<h4 id="舵机旋转">舵机旋转</h4>
+<p>红——————————VCC
+棕——————————GND
+橙——————————信号线</p>
+<h5 id="pwm控制">PWM控制</h5>
+<p>暂无</p>
+<h5 id="arduino控制">Arduino控制</h5>
+<p>直接使用Arduino的Servo库：</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="n">Servo</span> <span class="n">servo_16</span><span class="p">;</span>         <span class="c1">//舵机输出口 GIPO16
+</span><span class="c1"></span>
+<span class="n">servo_16</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">135</span><span class="p">);</span>    <span class="c1">//舵机旋转角度 具体参数需要结合自身情况修改
+</span><span class="c1"></span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>            <span class="c1">//给一个小延时
+</span><span class="c1"></span><span class="n">servo_16</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">95</span><span class="p">);</span>
+</code></pre></div><p>几行代码就可以使其转动，角度自己慢慢调就可以。</p>
 <h2 id="代码和库">代码和库</h2>
 <p><a href="https://fdxn.oss-cn-hangzhou.aliyuncs.com/code/openlight.zip">下载</a></p>
 <p>这份代码只是在@CloudBaby_这位大佬的基础上修改了开关方式，可以理解为二分频，就是只记录上次开关位置，而非固定开与关的上下。对于我的情况来说，灯的开关与否，8266是不知道的，他只知道也肯定知道开关现在的位置（我无法控制那个开关），好在单刀双掷开关只要变动开关就可以实现灯的切换状态，所以对小爱同学说开灯和关灯，传回到8266都是按一下开关。也顺便加了一个轻触开关启动，提供手动解决方案。</p>
@@ -136,10 +159,6 @@
                                     <i class="ri-stack-line"></i>
                                     
                                     <a href="https://FDXN.github.io/tags/arduino/">Arduino</a>
-                                    
-                                    <a href="https://FDXN.github.io/tags/%E5%AE%9E%E7%94%A8/">实用</a>
-                                    
-                                    <a href="https://FDXN.github.io/tags/c/">c</a>
                                     
                                     <a href="https://FDXN.github.io/tags/%E8%AE%B0%E5%BD%95/">记录</a>
                                     

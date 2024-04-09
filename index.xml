@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>使用Go-cqhttp和NoneBot2搭建出属于自己的QQ机器人</title>
+      <link>https://FDXN.github.io/posts/qqbot/</link>
+      <pubDate>Fri, 25 Nov 2022 17:54:31 +0800</pubDate>
+      
+      <guid>https://FDXN.github.io/posts/qqbot/</guid>
+      <description>本篇属于一个补档，毕竟补档是检验好活的唯一标准。 一开始我为什么要弄这个QQ机器人已经不记得了，但是当时做的时候一下子就成功了，很意外，而且大概是某个假期回家的路上弄的，弄完后那个假期就啥也没干了，所以</description>
+    </item>
+    
+    <item>
       <title>德创VisionPro操作和可视化图形化机器视觉</title>
       <link>https://FDXN.github.io/posts/dcck-vision-pro/</link>
       <pubDate>Sun, 20 Nov 2022 21:20:06 +0800</pubDate>
@@ -36,10 +45,10 @@
     
     <item>
       <title>关于为了一个远程桌面忙忙碌碌开了乱七八糟各种东西这回事儿</title>
-      <link>https://FDXN.github.io/posts/ipv6rd/</link>
+      <link>https://FDXN.github.io/posts/ipv6/</link>
       <pubDate>Wed, 20 Jul 2022 13:04:00 +0800</pubDate>
       
-      <guid>https://FDXN.github.io/posts/ipv6rd/</guid>
+      <guid>https://FDXN.github.io/posts/ipv6/</guid>
       <description>现在是7月20号，7月中旬的最后一天，距离上次更新博客已有两个半月，期间也不是没有做些事情，只是做了但是要么没做成，要么就根本没啥用。 感觉我最近写的越来越像流水账了，像小学生作文一样，今天把图床换成了</description>
     </item>
     
@@ -67,7 +76,7 @@
       <pubDate>Sat, 18 Dec 2021 00:39:58 +0800</pubDate>
       
       <guid>https://FDXN.github.io/posts/auto-reconnect-plus/</guid>
-      <description>自从那块香蕉派烧了之后,-135$￥,心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去</description>
+      <description>自从那块香蕉派烧了之后，-135￥，心痛，但是项目起都起头了，就不得不做下去。 这次使用的是树莓派zerow，自带了WiFi，非常适合本项目。 这一次也算是较为完美的解决了这个问题，到最后我是否会真的去实</description>
     </item>
     
     <item>
@@ -89,7 +98,7 @@
     </item>
     
     <item>
-      <title>集百(一？)家之所长的ASF挂卡</title>
+      <title>伪装成ASF挂卡记录的Tumx记录</title>
       <link>https://FDXN.github.io/posts/recall-copy-asf/</link>
       <pubDate>Sat, 25 Sep 2021 00:02:07 +0800</pubDate>
       
